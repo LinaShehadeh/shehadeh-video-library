@@ -141,6 +141,7 @@ window.SITE = {
       duration: "0:44",
       status: "published",
       thumb: "membrane",
+      poster: "videos/cell-membrane-potential.jpg",
       videoFile: "videos/cell-membrane-potential.mp4",   // -> cdnBase + this
       tags: ["resting potential","Na⁺/K⁺ pump","K⁺ leak","equilibrium potential"],
       objectives: [
@@ -274,7 +275,7 @@ function renderGrid(){
   $("#grid").innerHTML = list.length ? list.map(v=>{
     const live = v.status==="published"; const en=v.langs.EN;
     return `<button class="card" data-id="${v.id}">
-      <div class="thumb">${thumbSVG(v.thumb)}
+      <div class="thumb">${v.poster?`<img src="${S.cdnBase}/${v.poster}" alt="" style="display:block;width:100%;height:150px;object-fit:cover">`:thumbSVG(v.thumb)}
         ${live?`<div class="play"><span><span class="tri"></span></span></div>`:``}
         <span class="badge plate">${v.plate}</span>
         <span class="badge ${live?'dur':'prod'}">${live?v.duration:'in production'}</span>
@@ -331,11 +332,11 @@ function openModal(id){
     <div class="overlay" id="ov">
       <div class="modal" id="mc">
         <div class="player">
-          ${live ? `<video id="vid" controls crossorigin playsinline poster="">
+          ${live ? `<video id="vid" controls crossorigin playsinline poster="${S.cdnBase}/${v.poster}">
               <source src="${S.cdnBase}/${v.videoFile}" type="video/mp4">
               ${tracksHTML()}
             </video>
-            <div class="placeholder" id="ph">${thumbSVG(v.thumb)}
+            <div class="placeholder" id="ph" style="display:none">
               <div class="ph-note">Drop the real .mp4 on the CDN and the 8 .vtt files in /captions — playback + captions go live</div>
             </div>`
             : `<div class="placeholder"><div class="ph-note" style="background:rgba(201,87,27,.9)">Being finalized — publishes on merge</div></div>`}

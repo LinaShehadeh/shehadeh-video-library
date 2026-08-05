@@ -1,102 +1,102 @@
 WEBVTT
 
 1
-00:00:02.080 --> 00:00:05.040
+00:00:02.080 --> 00:00:05.040 line:10%
 Ever wonder why your cells have a negative electrical charge?
 
 2
-00:00:05.840 --> 00:00:08.000
+00:00:05.840 --> 00:00:08.000 line:10%
 Let's dive inside and look at the membrane.
 
 3
-00:00:08.800 --> 00:00:11.255
+00:00:08.800 --> 00:00:11.255 line:10%
 First, the sodium potassium pump ...
 
 4
-00:00:11.255 --> 00:00:16.079
+00:00:11.255 --> 00:00:16.079 line:10%
 uses ATP energy to push three positive sodium ions out of the cell.
 
 5
-00:00:16.960 --> 00:00:20.233
+00:00:16.960 --> 00:00:20.233 line:10%
 Simultaneously it pulls two potassium ions in,
 
 6
-00:00:20.233 --> 00:00:24.079
+00:00:20.233 --> 00:00:24.079 line:10%
 setting up the steep ion gradients across the membrane.
 
 7
-00:00:24.960 --> 00:00:29.191
+00:00:24.960 --> 00:00:29.191 line:10%
 Then potassium leak channels allow those yellow ...
 
 8
-00:00:29.191 --> 00:00:33.525
+00:00:29.191 --> 00:00:33.525 line:10%
 ions to diffuse back out, increasing the internal ...
 
 9
-00:00:33.525 --> 00:00:35.279
+00:00:33.525 --> 00:00:35.279 line:10%
 negativity inside.
 
 10
-00:00:35.440 --> 00:00:38.585
+00:00:35.440 --> 00:00:38.585 line:10%
 Massive negatively charged proteins stay trapped as they ...
 
 11
-00:00:38.585 --> 00:00:40.639
+00:00:38.585 --> 00:00:40.639 line:10%
 are far too large to cross the barrier.
 
 12
-00:00:40.640 --> 00:00:42.521
+00:00:40.640 --> 00:00:42.521 line:10%
 Together, these factors stabilize the ...
 
 13
-00:00:42.521 --> 00:00:45.599
+00:00:42.521 --> 00:00:45.599 line:10%
 resting membrane potential at a steady negative 70 millivolts.
 
 14
-00:00:46.080 --> 00:00:49.040
+00:00:46.080 --> 00:00:49.040 line:10%
 So why does the inside rest near minus 70 millivolts?
 
 15
-00:00:49.280 --> 00:00:51.758
+00:00:49.280 --> 00:00:51.758 line:10%
 Potassium leaks outward down its gradient until the ...
 
 16
-00:00:51.758 --> 00:00:53.672
+00:00:51.758 --> 00:00:53.672 line:10%
 negative interior almost pulls it back,
 
 17
-00:00:53.672 --> 00:00:56.319
+00:00:53.672 --> 00:00:56.319 line:10%
 settling close to potassium's equilibrium potential.
 
 18
-00:00:56.560 --> 00:00:59.349
+00:00:56.560 --> 00:00:59.349 line:10%
 And that charge is just a thin layer hugging the membrane ...
 
 19
-00:00:59.349 --> 00:01:00.239
+00:00:59.349 --> 00:01:00.239 line:10%
 like a capacitor.
 
 20
-00:01:01.200 --> 00:01:03.800
+00:01:01.200 --> 00:01:03.800 line:10%
 In short, three forces hold the cell ...
 
 21
-00:01:03.800 --> 00:01:05.360
+00:01:03.800 --> 00:01:05.360 line:10%
 near -70 millivolts.
 
 22
-00:01:05.360 --> 00:01:07.840
+00:01:05.360 --> 00:01:07.840 line:10%
 The sodium potassium pump builds the gradients.
 
 23
-00:01:08.160 --> 00:01:10.170
+00:01:08.160 --> 00:01:10.170 line:10%
 Potassium then leaks outward through leak ...
 
 24
-00:01:10.170 --> 00:01:12.068
+00:01:10.170 --> 00:01:12.068 line:10%
 channels, and large negatively charged ...
 
 25
-00:01:12.068 --> 00:01:13.519
+00:01:12.068 --> 00:01:13.519 line:10%
 proteins stay trapped inside.
 

@@ -1,102 +1,102 @@
 WEBVTT
 
 1
-00:00:02.080 --> 00:00:05.040
+00:00:02.080 --> 00:00:05.040 line:10%
 Vous êtes-vous déjà demandé pourquoi vos cellules ont une charge électrique négative ?
 
 2
-00:00:05.840 --> 00:00:08.000
+00:00:05.840 --> 00:00:08.000 line:10%
 Plongeons à l'intérieur et observons la membrane.
 
 3
-00:00:08.800 --> 00:00:11.255
+00:00:08.800 --> 00:00:11.255 line:10%
 D'abord, la pompe Na⁺/K⁺
 
 4
-00:00:11.255 --> 00:00:16.079
+00:00:11.255 --> 00:00:16.079 line:10%
 utilise l'énergie de l'ATP pour expulser trois ions Na⁺ hors de la cellule.
 
 5
-00:00:16.960 --> 00:00:20.233
+00:00:16.960 --> 00:00:20.233 line:10%
 En même temps, elle fait entrer deux ions K⁺,
 
 6
-00:00:20.233 --> 00:00:24.079
+00:00:20.233 --> 00:00:24.079 line:10%
 établissant de forts gradients ioniques à travers la membrane.
 
 7
-00:00:24.960 --> 00:00:29.191
+00:00:24.960 --> 00:00:29.191 line:10%
 Ensuite, les canaux de fuite K⁺ laissent ces ions jaunes
 
 8
-00:00:29.191 --> 00:00:33.525
+00:00:29.191 --> 00:00:33.525 line:10%
 diffuser de nouveau vers l'extérieur, augmentant la
 
 9
-00:00:33.525 --> 00:00:35.279
+00:00:33.525 --> 00:00:35.279 line:10%
 négativité interne.
 
 10
-00:00:35.440 --> 00:00:38.585
+00:00:35.440 --> 00:00:38.585 line:10%
 De grosses protéines chargées négativement restent piégées car
 
 11
-00:00:38.585 --> 00:00:40.639
+00:00:38.585 --> 00:00:40.639 line:10%
 elles sont bien trop grandes pour traverser la barrière.
 
 12
-00:00:40.640 --> 00:00:42.521
+00:00:40.640 --> 00:00:42.521 line:10%
 Ensemble, ces facteurs stabilisent
 
 13
-00:00:42.521 --> 00:00:45.599
+00:00:42.521 --> 00:00:45.599 line:10%
 le potentiel de membrane au repos à environ −70 mV constants.
 
 14
-00:00:46.080 --> 00:00:49.040
+00:00:46.080 --> 00:00:49.040 line:10%
 Alors, pourquoi l'intérieur reste-t-il proche de −70 mV ?
 
 15
-00:00:49.280 --> 00:00:51.758
+00:00:49.280 --> 00:00:51.758 line:10%
 Le K⁺ sort en suivant son gradient jusqu'à ce que
 
 16
-00:00:51.758 --> 00:00:53.672
+00:00:51.758 --> 00:00:53.672 line:10%
 l'intérieur négatif le rappelle presque,
 
 17
-00:00:53.672 --> 00:00:56.319
+00:00:53.672 --> 00:00:56.319 line:10%
 se stabilisant près du potentiel d'équilibre du K⁺.
 
 18
-00:00:56.560 --> 00:00:59.349
+00:00:56.560 --> 00:00:59.349 line:10%
 Et cette charge n'est qu'une fine couche collée à la membrane,
 
 19
-00:00:59.349 --> 00:01:00.239
+00:00:59.349 --> 00:01:00.239 line:10%
 comme un condensateur.
 
 20
-00:01:01.200 --> 00:01:03.800
+00:01:01.200 --> 00:01:03.800 line:10%
 En résumé, trois forces maintiennent la cellule
 
 21
-00:01:03.800 --> 00:01:05.360
+00:01:03.800 --> 00:01:05.360 line:10%
 proche de −70 mV.
 
 22
-00:01:05.360 --> 00:01:07.840
+00:01:05.360 --> 00:01:07.840 line:10%
 La pompe Na⁺/K⁺ établit les gradients.
 
 23
-00:01:08.160 --> 00:01:10.170
+00:01:08.160 --> 00:01:10.170 line:10%
 Puis le K⁺ sort par les canaux
 
 24
-00:01:10.170 --> 00:01:12.068
+00:01:10.170 --> 00:01:12.068 line:10%
 de fuite, et de grosses protéines chargées
 
 25
-00:01:12.068 --> 00:01:13.519
+00:01:12.068 --> 00:01:13.519 line:10%
 négativement restent piégées à l'intérieur.
 
