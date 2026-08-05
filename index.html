@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shehadeh Lab — Foundational Science Video Library</title>
+<meta property="og:title" content="Shehadeh Lab — Foundational Science Video Library" />
+<meta property="og:description" content="Short, board-relevant physiology animations for medical education. Free to watch, download, and share. Multilingual." />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@400;500&display=swap');
+
+:root{
+  --paper:#FBFAF6; --panel:#FFFFFF; --ink:#191C1A; --muted:#6B6E69;
+  --faint:#9A9C96; --line:#E7E5DC; --teal:#0F6E56; --tealSoft:#E2F0EB;
+  --orange:#C9571B; --orangeSoft:#F6E7DC;
+  --serif:'Newsreader',Georgia,serif; --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
+button{font-family:inherit}
+input::placeholder{color:var(--faint)}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+
+header.site{border-bottom:1px solid var(--line);background:rgba(251,250,246,.92);
+  backdrop-filter:blur(6px);position:sticky;top:0;z-index:20}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.head-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:18px}
+.brand{font-family:var(--serif);font-size:24px;font-weight:500}
+.brand-sub{font-family:var(--mono);font-size:12px;color:var(--teal)}
+.tagline{font-size:13px;color:var(--muted);margin-top:3px}
+.domain{font-family:var(--mono);font-size:11.5px;color:var(--faint);text-align:right}
+.search{margin:16px 0 18px;position:relative;max-width:440px}
+.search span{position:absolute;left:12px;top:9px;color:var(--faint);font-size:15px}
+.search input{width:100%;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);
+  border-radius:9px;padding:9px 12px 9px 32px;outline:none}
+
+main{max-width:1080px;margin:0 auto;padding:22px 22px 60px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);
+  border-radius:999px;padding:7px 14px;cursor:pointer}
+.chip.active{color:#fff;background:var(--ink);border-color:var(--ink);font-weight:500}
+.count{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--faint);align-self:center}
+.legend{display:flex;align-items:center;gap:14px;margin-bottom:22px;font-family:var(--mono);
+  font-size:11px;color:var(--faint);flex-wrap:wrap}
+.legend .avail{color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:1px}
+.legend .not{color:#C9C7BE}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.card{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;cursor:pointer;padding:0;display:flex;flex-direction:column;
+  transition:transform .18s,border-color .18s,box-shadow .18s;box-shadow:0 1px 2px rgba(25,28,26,.04)}
+.card:hover{transform:translateY(-3px);border-color:#D8D5CA;box-shadow:0 10px 24px rgba(25,28,26,.10)}
+.thumb{position:relative}
+.thumb svg{display:block;width:100%;height:150px}
+.badge{position:absolute;font-family:var(--mono);font-size:10.5px;color:#fff;border-radius:5px;padding:2px 6px}
+.badge.plate{left:10px;top:10px;background:rgba(25,28,26,.6)}
+.badge.dur{right:10px;top:10px;background:rgba(25,28,26,.6)}
+.badge.prod{right:10px;top:10px;background:rgba(201,87,27,.92)}
+.play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .18s}
+.card:hover .play{opacity:1}
+.play span{width:46px;height:46px;border-radius:999px;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center}
+.tri{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid var(--ink);margin-left:3px}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pill{font-family:var(--mono);font-size:11px;border-radius:5px;padding:3px 7px;white-space:nowrap;border:1px solid var(--line);background:#F1EFE8;color:#5F625C}
+.pill.teal{background:var(--tealSoft);color:var(--teal);border-color:#CFE6DE}
+.pill.orange{background:var(--orangeSoft);color:var(--orange);border-color:#EBD5C4}
+.card h3{font-family:var(--serif);font-size:19px;line-height:1.2;margin:0;font-weight:500}
+.card p{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0}
+.cov-row{margin-top:auto;padding-top:4px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cov{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.cov b{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;font-weight:500;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:1px}
+.cov s{font-family:var(--mono);font-size:10.5px;color:#C9C7BE;text-decoration:none}
+.cov-n{font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+
+.overlay{position:fixed;inset:0;background:rgba(25,28,26,.45);display:flex;align-items:flex-start;
+  justify-content:center;padding:40px 16px;overflow-y:auto;z-index:50}
+.modal{background:var(--paper);border:1px solid var(--line);border-radius:16px;width:100%;max-width:680px;overflow:hidden}
+.player{position:relative;background:#0F1417;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+.player video{width:100%;height:100%;display:block;background:#0F1417}
+.player .placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.player .ph-note{font-family:var(--mono);font-size:12px;color:#cfd6d3;background:rgba(255,255,255,.08);padding:6px 12px;border-radius:6px}
+.closex{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:999px;border:none;
+  background:rgba(255,255,255,.9);color:var(--ink);cursor:pointer;font-size:16px;line-height:1;z-index:3}
+.mbody{padding:20px 24px 26px}
+.langbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.langbar .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.lbtn{font-size:13px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer}
+.lbtn.active{color:#fff;background:var(--teal);border-color:var(--teal);font-weight:500}
+.lbtn:disabled{color:#C4C2BA;border-color:#EEECE4;cursor:not-allowed;opacity:.7}
+.modal h2{font-family:var(--serif);font-size:26px;line-height:1.2;margin:0 0 10px;font-weight:500}
+.modal .desc{font-size:15px;line-height:1.65;color:var(--muted);margin:0 0 18px}
+.mode-note{font-family:var(--mono);font-size:11.5px;color:var(--teal);margin:0 0 18px}
+.actions{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;align-items:center}
+.btn{font-size:14px;font-weight:500;border-radius:8px;padding:10px 16px;cursor:pointer;border:1px solid transparent}
+.btn.primary{color:#fff;background:var(--teal)}
+.btn.ghost{color:var(--ink);background:#fff;border-color:var(--line)}
+.perma{font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;align-items:center}
+.section{border-top:1px solid var(--line);padding:16px 0 0;margin-bottom:16px}
+.section .h{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
+.section ul{margin:0;padding-left:18px}
+.section li{font-size:14px;line-height:1.6;margin-bottom:4px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.rtl{direction:rtl;text-align:right}
+.rtl h2{font-family:var(--sans)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;
+  font-family:var(--mono);font-size:12.5px;padding:10px 16px;border-radius:8px;z-index:60}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--faint);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer .mono{font-family:var(--mono)}
+</style>
+</head>
+<body>
+
+<!-- ========================================================================
+     CONTENT — this is the only block you edit to add a video or a language.
+     In the real repo this lives in data.js as `window.SITE = {...}` and each
+     video can be its own file. Big .mp4 files live on cdn.shehadehlab.com (R2);
+     the small .vtt caption files live in /captions in this repo.
+     ===================================================================== -->
+<script>
+window.SITE = {
+  cdnBase: "https://cdn.shehadehlab.com",           // where the .mp4 files live (R2)
+  languages: [
+    { code:"EN", native:"English",          srclang:"en", dir:"ltr" },
+    { code:"AR", native:"العربية",           srclang:"ar", dir:"rtl" },
+    { code:"ES", native:"Español",          srclang:"es", dir:"ltr" },
+    { code:"PT", native:"Português",        srclang:"pt", dir:"ltr" },
+    { code:"FR", native:"Français",         srclang:"fr", dir:"ltr" },
+    { code:"HT", native:"Kreyòl Ayisyen",   srclang:"ht", dir:"ltr" },
+    { code:"TL", native:"Tagalog",          srclang:"tl", dir:"ltr" },
+    { code:"MS", native:"Bahasa Melayu",    srclang:"ms", dir:"ltr" }
+  ],
+  videos: [
+    {
+      id: "cell-membrane-potential",
+      plate: "PHYS-001",
+      system: "Cell & General Physiology",
+      discipline: "Physiology",
+      duration: "0:44",
+      status: "published",
+      thumb: "membrane",
+      videoFile: "videos/cell-membrane-potential.mp4",   // -> cdnBase + this
+      tags: ["resting potential","Na⁺/K⁺ pump","K⁺ leak","equilibrium potential"],
+      objectives: [
+        "Explain why the cell interior rests near −70 mV.",
+        "Identify the three forces that maintain it."
+      ],
+      usmle: ["Step 1 · Cardiovascular — membrane potentials"],
+      // one entry per available language. vtt path is repo-relative (/captions).
+      langs: {
+        EN:{ mode:"audio",    vtt:"captions/cell-membrane-potential.en.vtt",
+             title:"Why the Resting Membrane Potential Is Negative",
+             desc:"How the Na⁺/K⁺ pump, potassium leak, and trapped intracellular anions hold the cell near −70 mV." },
+        AR:{ mode:"captions", vtt:"captions/cell-membrane-potential.ar.vtt",
+             title:"لماذا يكون جهد الراحة الغشائي سالبًا",
+             desc:"كيف تحافظ مضخة الصوديوم والبوتاسيوم، وتسرّب البوتاسيوم، والأنيونات المحتجزة داخل الخلية على بقاء الخلية قرب −70 مللي فولت." },
+        ES:{ mode:"captions", vtt:"captions/cell-membrane-potential.es.vtt",
+             title:"Por qué el potencial de membrana en reposo es negativo",
+             desc:"Cómo la bomba Na⁺/K⁺, la fuga de potasio y los aniones intracelulares atrapados mantienen la célula cerca de −70 mV." },
+        PT:{ mode:"captions", vtt:"captions/cell-membrane-potential.pt.vtt",
+             title:"Por que o potencial de repouso da membrana é negativo",
+             desc:"Como a bomba de Na⁺/K⁺, o vazamento de potássio e os ânions intracelulares aprisionados mantêm a célula perto de −70 mV." },
+        FR:{ mode:"captions", vtt:"captions/cell-membrane-potential.fr.vtt",
+             title:"Pourquoi le potentiel de repos membranaire est négatif",
+             desc:"Comment la pompe Na⁺/K⁺, la fuite de potassium et les anions intracellulaires piégés maintiennent la cellule près de −70 mV." },
+        HT:{ mode:"captions", vtt:"captions/cell-membrane-potential.ht.vtt",
+             title:"Poukisa Potansyèl Repo Manbràn nan Negatif",
+             desc:"Kijan ponp Na⁺/K⁺ la, fwit potasyòm, ak anyon ki pran nan pyèj andedan selil la kenbe selil la toupre −70 mV." },
+        TL:{ mode:"captions", vtt:"captions/cell-membrane-potential.tl.vtt",
+             title:"Bakit Negatibo ang Resting Membrane Potential",
+             desc:"Kung paano pinapanatili ng Na⁺/K⁺ pump, potassium leak, at nakukulong na intracellular anions ang selula malapit sa −70 mV." },
+        MS:{ mode:"captions", vtt:"captions/cell-membrane-potential.ms.vtt",
+             title:"Mengapa Potensi Membran Rehat adalah Negatif",
+             desc:"Bagaimana pam Na⁺/K⁺, kebocoran kalium, dan anion intrasel terperangkap mengekalkan sel berhampiran −70 mV." }
+      }
+    }
+  ]
+};
+</script>
+<!-- ===================== end editable content ========================= -->
+
+<header class="site">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <span class="brand">Shehadeh Lab</span>
+          <span class="brand-sub">Foundational Science Library</span>
+        </div>
+        <div class="tagline">Short, board-relevant physiology animations · free to watch, download, and share · multilingual</div>
+      </div>
+      <div class="domain">videos.shehadehlab.com</div>
+    </div>
+    <div class="search">
+      <span>⌕</span>
+      <input id="q" placeholder="Search topics, mechanisms, tags…" />
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="filters" id="filters"></div>
+  <div class="legend">
+    <span>Language coverage per video:</span>
+    <span class="avail">available</span>
+    <span class="not">not yet</span>
+    <span style="margin-left:auto">each language is a pull request — collaborators contribute translations</span>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    <span>Shehadeh Lab · University of Miami Miller School of Medicine · Cell Physiology</span>
+    <span class="mono">Videos served from cdn.shehadehlab.com · $0 egress</span>
+  </footer>
+</main>
+
+<div id="modalRoot"></div>
+
+<script>
+const S = window.SITE;
+const LANGS = S.languages;
+const $ = (s,el=document)=>el.querySelector(s);
+
+function thumbSVG(kind){
+  if(kind==="membrane") return `<svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="320" height="150" fill="#20364A"/>
+    ${Array.from({length:20}).map((_,i)=>`<circle cx="${12+i*16}" cy="58" r="6" fill="#E8973B"/><rect x="${9+i*16}" y="62" width="6" height="26" fill="#243B78"/><circle cx="${12+i*16}" cy="92" r="6" fill="#E8973B"/>`).join("")}
+    <rect x="150" y="46" width="26" height="58" rx="12" fill="#7C5BC9"/>
+    ${[[60,118],[110,130],[210,122],[250,112],[40,100]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="7" fill="#5FB86B"/>`).join("")}
+  </svg>`;
+  if(kind==="filament") return `<svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="320" height="150" fill="#2A1E33"/><rect x="0" y="66" width="320" height="16" rx="8" fill="#C24B6E"/>
+    ${Array.from({length:9}).map((_,i)=>`<circle cx="${20+i*36}" cy="74" r="10" fill="#E58AA6"/>`).join("")}
+    ${[[70,40],[150,40],[230,40]].map(([x,y])=>`<rect x="${x}" y="${y}" width="10" height="34" rx="5" fill="#8B6BC4"/><circle cx="${x+5}" cy="${y}" r="9" fill="#A98BDD"/>`).join("")}
+  </svg>`;
+  return `<svg viewBox="0 0 320 150" preserveAspectRatio="xMidYMid slice">
+    <rect width="320" height="150" fill="#233246"/><ellipse cx="160" cy="52" rx="92" ry="42" fill="#8FC4D6" opacity="0.55"/>
+    ${[[130,40],[165,34],[190,50],[145,58],[178,62]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="8" fill="#4FA85E"/>`).join("")}
+    <rect x="122" y="88" width="320" height="12" fill="#E8973B"/><rect x="0" y="88" width="118" height="12" fill="#E8973B"/>
+    ${[[150,82],[175,82]].map(([x,y])=>`<rect x="${x}" y="${y}" width="12" height="34" rx="5" fill="#6B54C0"/>`).join("")}
+    ${[[96,96],[214,96],[66,96]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="6" fill="#C93F8E"/>`).join("")}
+  </svg>`;
+}
+
+let activeSystem="All", query="";
+const systems = ["All", ...new Set(S.videos.map(v=>v.system))];
+
+function renderFilters(){
+  $("#filters").innerHTML = systems.map(s=>`<button class="chip ${s===activeSystem?'active':''}" data-sys="${s}">${s}</button>`).join("")
+    + `<span class="count" id="count"></span>`;
+  document.querySelectorAll("[data-sys]").forEach(b=>b.onclick=()=>{activeSystem=b.dataset.sys;renderGrid();});
+}
+
+function coverage(v){
+  const avail = Object.keys(v.langs);
+  const strip = LANGS.map(l=> avail.includes(l.code)
+    ? `<b title="${l.native} available">${l.code}</b>`
+    : `<s title="${l.native} — not yet">${l.code}</s>`).join("");
+  return `<div class="cov-row"><div class="cov">${strip}</div><span class="cov-n">${avail.length} language${avail.length>1?'s':''}</span></div>`;
+}
+
+function renderGrid(){
+  renderFilters();
+  const q = query.trim().toLowerCase();
+  const list = S.videos.filter(v=>{
+    const sysOk = activeSystem==="All" || v.system===activeSystem;
+    const en = v.langs.EN;
+    const qOk = !q || en.title.toLowerCase().includes(q) || en.desc.toLowerCase().includes(q) || v.tags.some(t=>t.toLowerCase().includes(q));
+    return sysOk && qOk;
+  });
+  $("#count").textContent = `${list.length} video${list.length!==1?'s':''}`;
+  $("#grid").innerHTML = list.length ? list.map(v=>{
+    const live = v.status==="published"; const en=v.langs.EN;
+    return `<button class="card" data-id="${v.id}">
+      <div class="thumb">${thumbSVG(v.thumb)}
+        ${live?`<div class="play"><span><span class="tri"></span></span></div>`:``}
+        <span class="badge plate">${v.plate}</span>
+        <span class="badge ${live?'dur':'prod'}">${live?v.duration:'in production'}</span>
+      </div>
+      <div class="card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill teal">${v.system}</span><span class="pill">${v.discipline}</span></div>
+        <h3>${en.title}</h3>
+        <p>${en.desc}</p>
+        ${coverage(v)}
+      </div>
+    </button>`;
+  }).join("") : `<div style="border:1px dashed var(--line);border-radius:12px;padding:48px 20px;text-align:center;color:var(--muted)">No videos match that yet.</div>`;
+  document.querySelectorAll(".card").forEach(c=>c.onclick=()=>openModal(c.dataset.id));
+}
+
+function openModal(id){
+  const v = S.videos.find(x=>x.id===id);
+  const avail = Object.keys(v.langs);
+  let cur = "EN";
+  const live = v.status==="published";
+
+  function tracksHTML(){
+    return avail.map(code=>{
+      const l = LANGS.find(x=>x.code===code); const lg=v.langs[code];
+      return `<track kind="subtitles" src="${lg.vtt}" srclang="${l.srclang}" label="${l.native}" ${code==='EN'?'default':''}>`;
+    }).join("");
+  }
+  function draw(){
+    const l = LANGS.find(x=>x.code===cur); const lg=v.langs[cur]; const rtl=l.dir==="rtl";
+    const perma = `videos.shehadehlab.com/v/${v.id}${cur==='EN'?'':'?lang='+cur.toLowerCase()}`;
+    $("#mTitle").className = rtl?"rtl":""; $("#mTitle").innerHTML =
+      `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;${rtl?'justify-content:flex-end':''}">
+         <span class="pill teal">${v.system}</span><span class="pill">${v.discipline}</span><span class="pill">${v.plate}</span>${live?`<span class="pill">${v.duration}</span>`:''}
+       </div>
+       <h2>${lg.title}</h2><p class="desc">${lg.desc}</p>`;
+    $("#mMode").textContent = live ? (lg.mode==="audio"
+        ? `▶ ${l.native} — native audio + captions`
+        : `▶ English audio · ${l.native} subtitles${rtl?' (right-to-left)':''}`) : "";
+    $("#perma").textContent = perma;
+    document.querySelectorAll(".lbtn").forEach(b=>b.classList.toggle("active", b.dataset.c===cur));
+    // sync the actual <video> caption track
+    const vid = $("#vid");
+    if(vid && vid.textTracks){
+      for(const tt of vid.textTracks){ tt.mode = (tt.language===l.srclang)?"showing":"disabled"; }
+    }
+  }
+
+  const langButtons = LANGS.map(l=>{
+    const on = avail.includes(l.code);
+    return `<button class="lbtn" data-c="${l.code}" ${on?'':'disabled'} title="${on?l.native:l.native+' — not yet translated. Open a PR to contribute.'}">${l.native}${l.dir==='rtl'?' ⟵':''}</button>`;
+  }).join("");
+
+  $("#modalRoot").innerHTML = `
+    <div class="overlay" id="ov">
+      <div class="modal" id="mc">
+        <div class="player">
+          ${live ? `<video id="vid" controls crossorigin playsinline poster="">
+              <source src="${S.cdnBase}/${v.videoFile}" type="video/mp4">
+              ${tracksHTML()}
+            </video>
+            <div class="placeholder" id="ph">${thumbSVG(v.thumb)}
+              <div class="ph-note">Drop the real .mp4 on the CDN and the 8 .vtt files in /captions — playback + captions go live</div>
+            </div>`
+            : `<div class="placeholder"><div class="ph-note" style="background:rgba(201,87,27,.9)">Being finalized — publishes on merge</div></div>`}
+          <button class="closex" id="cx">×</button>
+        </div>
+        <div class="mbody">
+          <div class="langbar"><span class="lbl">Language</span>${langButtons}</div>
+          <div id="mTitle"></div>
+          <p class="mode-note" id="mMode"></p>
+          <div class="actions">
+            <button class="btn primary" id="dl" ${live?'':'disabled'}>↓ Download</button>
+            <button class="btn ghost" id="sh">⤴ Share link</button>
+            <span class="perma" id="perma"></span>
+          </div>
+          <div class="section"><div class="h">Learning objectives</div>
+            <ul>${v.objectives.map(o=>`<li>${o}</li>`).join("")}</ul></div>
+          <div class="section"><div class="h">Concept tags</div>
+            <div class="tags">${v.tags.map(t=>`<span class="tag">#${t}</span>`).join("")}</div></div>
+          <div class="section"><div class="h">USMLE content map</div>
+            <div class="tags">${v.usmle.map(u=>`<span class="pill orange">${u}</span>`).join("")}</div></div>
+          <div class="section"><div class="h">Linked clinical cases</div>
+            <p style="font-size:13.5px;color:var(--faint);margin:0;font-style:italic">None linked yet — field is in the data model, ready to populate.</p></div>
+        </div>
+      </div>
+    </div>`;
+
+  const close=()=>$("#modalRoot").innerHTML="";
+  $("#ov").onclick=e=>{ if(e.target.id==="ov") close(); };
+  $("#cx").onclick=close;
+  document.querySelectorAll(".lbtn").forEach(b=>{ if(!b.disabled) b.onclick=()=>{cur=b.dataset.c;draw();}; });
+  $("#sh").onclick=()=>toast(`Link copied — ${$("#perma").textContent}`);
+  const dl=$("#dl"); if(dl && live) dl.onclick=()=>toast(`Downloading ${cur} version from cdn.shehadehlab.com…`);
+  // hide placeholder once real video can play
+  const vid=$("#vid");
+  if(vid){ vid.addEventListener("loadeddata",()=>{const ph=$("#ph"); if(ph) ph.style.display="none";}); }
+  draw();
+}
+
+let toastT;
+function toast(m){
+  const old=$("#toast"); if(old) old.remove();
+  const d=document.createElement("div"); d.id="toast"; d.className="toast"; d.textContent=m;
+  document.body.appendChild(d); clearTimeout(toastT); toastT=setTimeout(()=>d.remove(),2400);
+}
+
+$("#q").addEventListener("input",e=>{query=e.target.value;renderGrid();});
+renderGrid();
+</script>
+</body>
+</html>
