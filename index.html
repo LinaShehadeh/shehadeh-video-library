@@ -109,6 +109,21 @@ main{max-width:1080px;margin:0 auto;padding:22px 22px 60px}
 footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--faint);
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 footer .mono{font-family:var(--mono)}
+
+/* practice quiz */
+.quiz .qmeta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.stepchip{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:4px 9px;border-radius:20px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+.stepchip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.qscore{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--teal)}
+.qcard{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+.qstep{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--orange);margin-bottom:6px}
+.qstem{font-size:14.5px;line-height:1.5;margin:0 0 12px}
+.qchoice{display:block;width:100%;text-align:left;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.qchoice:hover:not(:disabled){background:var(--paper)}
+.qchoice.correct{background:#E7F5EE;border-color:var(--teal);color:#0b5b46;font-weight:500}
+.qchoice.wrong{background:#FBE9E7;border-color:var(--orange);color:#8a3310}
+.qexpl{font-size:13.5px;line-height:1.55;color:var(--muted);background:var(--paper);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:10px 12px;margin-top:10px}
+.qnav{display:flex;justify-content:flex-end;margin-top:12px}
 </style>
 </head>
 <body>
@@ -137,6 +152,7 @@ window.SITE = {
   videos: [
     {
       id: "cell-membrane-potential",
+      questions: [{"step": "Step 1", "stem": "An investigator records a resting membrane potential of about −70 mV in an isolated neuron. Which factor is the primary determinant of this resting potential?", "choices": ["Direct electrogenic activity of the Na⁺/K⁺-ATPase", "K⁺ efflux through leak channels down its concentration gradient", "Na⁺ influx through voltage-gated Na⁺ channels", "Cl⁻ influx through voltage-gated Cl⁻ channels", "Ca²⁺ release from the endoplasmic reticulum"], "answer": 1, "explanation": "At rest the membrane is far more permeable to K⁺ (leak channels) than to other ions, so Vm sits close to the K⁺ equilibrium potential (E_K ≈ −90 mV). The Na⁺/K⁺ pump is electrogenic but contributes only ~ −4 mV directly; its main job is maintaining the gradients. Voltage-gated channels are closed at rest."}, {"step": "Step 1", "stem": "Per molecule of ATP hydrolyzed, the Na⁺/K⁺-ATPase transports ions in which stoichiometry?", "choices": ["3 Na⁺ in / 2 K⁺ out", "2 Na⁺ out / 2 K⁺ in", "3 Na⁺ out / 2 K⁺ in", "2 Na⁺ out / 3 K⁺ in", "1 Na⁺ out / 1 K⁺ in"], "answer": 2, "explanation": "The pump extrudes 3 Na⁺ and imports 2 K⁺ per ATP. Net export of one positive charge makes it electrogenic, and it builds the Na⁺ and K⁺ gradients that underlie the resting potential and excitability."}, {"step": "Step 2", "stem": "A 58-year-old man with end-stage renal disease misses dialysis. Serum K⁺ is 7.4 mEq/L and the ECG shows peaked T waves. How does the elevated extracellular K⁺ most directly alter the resting membrane potential of his cardiomyocytes?", "choices": ["It hyperpolarizes the membrane (more negative)", "It depolarizes the membrane (less negative)", "No effect, because the Na⁺/K⁺ pump compensates", "It shifts Vm toward the Ca²⁺ equilibrium potential", "It abolishes the transmembrane Na⁺ gradient"], "answer": 1, "explanation": "Raising extracellular K⁺ reduces the K⁺ gradient, so E_K becomes less negative and the resting Vm depolarizes. Sustained depolarization inactivates voltage-gated Na⁺ channels → slowed conduction and arrhythmia (peaked T waves → widened QRS). IV calcium stabilizes the myocardial membrane emergently."}],
       plate: "PHYS-001",
       system: "Cell & General Physiology",
       discipline: "Physiology",
@@ -187,6 +203,7 @@ window.SITE = {
     },
     {
       id: "muscle-shortening",
+      questions: [{"step": "Step 1", "stem": "During the cross-bridge cycle, release of which molecule from the myosin head triggers the power stroke?", "choices": ["ATP", "Inorganic phosphate (Pi)", "Calcium", "Troponin C", "A second ADP"], "answer": 1, "explanation": "After the myosin head binds actin, release of inorganic phosphate (Pi) triggers the power stroke — the swing that pulls the thin filament inward. ADP is released next; binding of a new ATP then detaches the head."}, {"step": "Step 1", "stem": "Calcium initiates skeletal muscle contraction by binding to which protein, thereby moving tropomyosin off the myosin-binding sites on actin?", "choices": ["Tropomyosin", "Troponin C", "Myosin heavy chain", "Titin", "Calmodulin"], "answer": 1, "explanation": "Ca²⁺ binds troponin C, shifting tropomyosin away from the actin binding sites and exposing them for cross-bridge formation. (In smooth muscle, Ca²⁺ instead acts via calmodulin and myosin light-chain kinase.)"}, {"step": "Step 2", "stem": "A medical examiner notes generalized muscle rigidity several hours after death (rigor mortis). What is the biochemical basis?", "choices": ["Sustained calcium release with adequate ATP", "Depletion of ATP, leaving myosin bound to actin", "Excess ATP locking the myosin heads", "Permanent tropomyosin blockade of actin", "Failure of the Na⁺/K⁺-ATPase"], "answer": 1, "explanation": "Detachment of myosin from actin requires binding of a new ATP. After death ATP is depleted, so cross-bridges stay locked and muscles stiffen (rigor mortis); it resolves later as proteolysis degrades the myofilaments."}],
       plate: "PHYS-002",
       system: "Musculoskeletal Physiology",
       discipline: "Physiology",
@@ -348,6 +365,38 @@ function renderGrid(){
   document.querySelectorAll(".card").forEach(c=>c.onclick=()=>openModal(c.dataset.id));
 }
 
+function renderQuiz(v){
+  const box=document.querySelector("#quiz"); if(!box) return;
+  const all=(v.questions||[]);
+  if(!all.length){ box.innerHTML=`<p style="font-size:13.5px;color:var(--faint);margin:0;font-style:italic">Practice questions coming soon.</p>`; return; }
+  let filter="All", idx=0, score=0, answered=0;
+  const steps=["All","Step 1","Step 2"];
+  const pool=()=> filter==="All"?all:all.filter(q=>q.step===filter);
+  function render(){
+    const qs=pool(); if(!qs.length){ box.innerHTML=`<p style="font-size:13.5px;color:var(--faint)">No ${filter} questions yet.</p>`; return; }
+    if(idx>=qs.length) idx=0; const q=qs[idx];
+    box.innerHTML=`
+      <div class="qmeta">${steps.map(x=>`<button class="stepchip ${x===filter?'active':''}" data-s="${x}">${x}</button>`).join("")}<span class="qscore">Score ${score}/${answered}</span></div>
+      <div class="qcard"><div class="qstep">${q.step} · Question ${idx+1} of ${qs.length}</div>
+      <p class="qstem">${q.stem}</p>
+      <div id="qchoices">${q.choices.map((c,i)=>`<button class="qchoice" data-i="${i}">${String.fromCharCode(65+i)}. ${c}</button>`).join("")}</div>
+      <div id="qafter"></div></div>`;
+    box.querySelectorAll(".stepchip").forEach(b=>b.onclick=()=>{filter=b.dataset.s;idx=0;render();});
+    box.querySelectorAll(".qchoice").forEach(b=>b.onclick=()=>choose(parseInt(b.dataset.i),q));
+  }
+  function choose(i,q){
+    box.querySelectorAll(".qchoice").forEach(b=>{ b.disabled=true; const bi=parseInt(b.dataset.i);
+      if(bi===q.answer) b.classList.add("correct"); else if(bi===i) b.classList.add("wrong"); });
+    answered++; if(i===q.answer) score++;
+    const sc=box.querySelector(".qmeta .qscore"); if(sc) sc.textContent=`Score ${score}/${answered}`;
+    const qs=pool();
+    document.querySelector("#qafter").innerHTML=`<div class="qexpl"><strong>${i===q.answer?"Correct. ":"Not quite. "}</strong>${q.explanation}</div><div class="qnav">${idx<qs.length-1?`<button class="btn primary" id="qnext">Next question →</button>`:`<button class="btn ghost" id="qrestart">↻ Restart</button>`}</div>`;
+    const nx=document.querySelector("#qnext"); if(nx) nx.onclick=()=>{idx++;render();};
+    const rs=document.querySelector("#qrestart"); if(rs) rs.onclick=()=>{idx=0;score=0;answered=0;render();};
+  }
+  render();
+}
+
 function openModal(id){
   const v = S.videos.find(x=>x.id===id);
   const avail = Object.keys(v.langs);
@@ -414,6 +463,8 @@ function openModal(id){
             <div class="tags">${v.tags.map(t=>`<span class="tag">#${t}</span>`).join("")}</div></div>
           <div class="section"><div class="h">USMLE content map</div>
             <div class="tags">${v.usmle.map(u=>`<span class="pill orange">${u}</span>`).join("")}</div></div>
+          <div class="section"><div class="h">Practice questions <span style="font-weight:400;color:var(--faint);font-family:var(--mono);font-size:11px">· Step 1 &amp; Step 2</span></div>
+            <div class="quiz" id="quiz"></div></div>
           <div class="section"><div class="h">Linked clinical cases</div>
             <p style="font-size:13.5px;color:var(--faint);margin:0;font-style:italic">None linked yet — field is in the data model, ready to populate.</p></div>
         </div>
@@ -424,6 +475,7 @@ function openModal(id){
   $("#ov").onclick=e=>{ if(e.target.id==="ov") close(); };
   $("#cx").onclick=close;
   document.querySelectorAll(".lbtn").forEach(b=>{ if(!b.disabled) b.onclick=()=>{cur=b.dataset.c;draw();}; });
+  renderQuiz(v);
   $("#sh").onclick=()=>toast(`Link copied — ${$("#perma").textContent}`);
   const dl=$("#dl"); if(dl && live) dl.onclick=()=>toast(`Downloading ${cur} version from cdn.shehadehlab.com…`);
   // hide placeholder once real video can play
