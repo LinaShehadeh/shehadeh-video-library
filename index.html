@@ -136,7 +136,10 @@ footer .mono{font-family:var(--mono)}
      ===================================================================== -->
 <script>
 window.SITE = {
-  cdnBase: ".",           // where the .mp4 files live (R2)
+  cdnBase: ".",           // small files served from the repo/Pages: posters (.jpg) + captions (.vtt)
+  // Big .mp4 files live in a GitHub Release ("media" tag), NOT in the repo, so deploys stay tiny & fast.
+  // To add a video: upload its .mp4 as an asset on the Release tagged "media", then set videoFile below to the bare filename.
+  mediaBase: "https://github.com/LinaShehadeh/shehadeh-video-library/releases/download/media",
   languages: [
     { code:"EN", native:"English",          srclang:"en", dir:"ltr" },
     { code:"AR", native:"العربية",           srclang:"ar", dir:"rtl" },
@@ -160,7 +163,7 @@ window.SITE = {
       status: "published",
       thumb: "membrane",
       poster: "videos/cell-membrane-potential.jpg",
-      videoFile: "videos/cell-membrane-potential.mp4",   // -> cdnBase + this
+      videoFile: "cell-membrane-potential.mp4",   // -> mediaBase + this (asset on the "media" Release)
       tags: ["resting potential","Na⁺/K⁺ pump","K⁺ leak","equilibrium potential"],
       objectives: [
         "Explain why the cell interior rests near −70 mV.",
@@ -211,7 +214,7 @@ window.SITE = {
       status: "published",
       thumb: "muscle",
       poster: "videos/muscle-shortening.jpg",
-      videoFile: "videos/muscle-shortening.mp4",
+      videoFile: "muscle-shortening.mp4",   // -> mediaBase + this (asset on the "media" Release)
       tags: ["cross-bridge cycle","myosin","actin","sliding filament","power stroke"],
       objectives: [
         "Trace the cross-bridge cycle step by step.",
@@ -438,8 +441,8 @@ function openModal(id){
     <div class="overlay" id="ov">
       <div class="modal" id="mc">
         <div class="player">
-          ${live ? `<video id="vid" controls crossorigin playsinline poster="${S.cdnBase}/${v.poster}">
-              <source src="${S.cdnBase}/${v.videoFile}" type="video/mp4">
+          ${live ? `<video id="vid" controls playsinline poster="${S.cdnBase}/${v.poster}">
+              <source src="${S.mediaBase}/${v.videoFile}" type="video/mp4">
               ${tracksHTML()}
             </video>
             <div class="placeholder" id="ph" style="display:none">
@@ -477,7 +480,7 @@ function openModal(id){
   document.querySelectorAll(".lbtn").forEach(b=>{ if(!b.disabled) b.onclick=()=>{cur=b.dataset.c;draw();}; });
   renderQuiz(v);
   $("#sh").onclick=()=>toast(`Link copied — ${$("#perma").textContent}`);
-  const dl=$("#dl"); if(dl && live) dl.onclick=()=>toast(`Downloading ${cur} version from cdn.shehadehlab.com…`);
+  const dl=$("#dl"); if(dl && live) dl.onclick=()=>{ toast(`Downloading ${v.id}.mp4…`); window.location.href = `${S.mediaBase}/${v.videoFile}`; };
   // hide placeholder once real video can play
   const vid=$("#vid");
   if(vid){ vid.addEventListener("loadeddata",()=>{const ph=$("#ph"); if(ph) ph.style.display="none";}); }
