@@ -124,9 +124,26 @@ footer .mono{font-family:var(--mono)}
 .qchoice.wrong{background:#FBE9E7;border-color:var(--orange);color:#8a3310}
 .qexpl{font-size:13.5px;line-height:1.55;color:var(--muted);background:var(--paper);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:10px 12px;margin-top:10px}
 .qnav{display:flex;justify-content:flex-end;margin-top:12px}
+
+/* ---- house-style captions: white text on the orange brush ---- */
+.capwrap{position:absolute;display:flex;flex-direction:column;align-items:center;gap:.18em;
+  pointer-events:none;z-index:2;text-align:center;font-size:24px}
+.capwrap.rtl{direction:rtl}
+.capline{position:relative;display:inline-block;max-width:100%;
+  padding:.20em .45em .24em;font-weight:800;color:#fff;line-height:1.08;letter-spacing:-.005em}
+.capline .cbg{position:absolute;inset:-.05em -.23em;background:#E98A3C;
+  border-radius:.32em .21em .35em .19em;filter:url(#brushcue);z-index:1}
+.capline .ctx{position:relative;z-index:2;text-shadow:0 .03em .08em rgba(90,40,0,.34)}
+.capline sub{font-size:.62em;vertical-align:-.2em}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="brushcue" x="-16%" y="-45%" width="132%" height="190%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.020 0.085" numOctaves="3" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
 <!-- ========================================================================
      CONTENT — this is the only block you edit to add a video or a language.
@@ -373,6 +390,7 @@ window.SITE = {
       status: "published",
       thumb: "membrane",
       poster: "videos/cardiac-ec-coupling.jpg",
+      captionPos: "bottom",   // labels occupy the top of this one
       videoFile: "cardiac-ec-coupling.mp4",   // -> mediaBase + this (asset on the "media" Release)
       tags: ["excitation-contraction coupling","calcium-induced calcium release","Ca_v1.2","L-type calcium channel","RyR2","SERCA","phospholamban","NCX","lusitropy","atrial fibrillation","verapamil","diltiazem","HFpEF","HFrEF"],
       objectives: [
@@ -570,7 +588,7 @@ function openModal(id){
   function tracksHTML(){
     return avail.map(code=>{
       const l = LANGS.find(x=>x.code===code); const lg=v.langs[code];
-      return `<track kind="subtitles" src="${lg.vtt}" srclang="${l.srclang}" label="${l.native}" ${code==='EN'?'default':''}>`;
+      return `<track kind="subtitles" src="${lg.vtt}" srclang="${l.srclang}" label="${l.native}">`;
     }).join("");
   }
   function draw(){
@@ -586,10 +604,56 @@ function openModal(id){
         : `▶ English audio · ${l.native} subtitles${rtl?' (right-to-left)':''}`) : "";
     $("#perma").textContent = perma;
     document.querySelectorAll(".lbtn").forEach(b=>b.classList.toggle("active", b.dataset.c===cur));
-    // sync the actual <video> caption track
+    // sync the caption track — "hidden" keeps cues firing while we paint them ourselves
     const vid = $("#vid");
     if(vid && vid.textTracks){
-      for(const tt of vid.textTracks){ tt.mode = (tt.language===l.srclang)?"showing":"disabled"; }
+      for(const tt of vid.textTracks){ tt.mode = (tt.language===l.srclang)?"hidden":"disabled"; }
+    }
+    const wrap = $("#capwrap");
+    if(wrap){
+      wrap.classList.toggle("rtl", rtl);
+      wrap.dataset.pos = v.captionPos || "top";
+      layoutCaptions(); paintCaptions();
+    }
+  }
+
+  // ---- caption painting -------------------------------------------------
+  function activeTrack(){
+    const vid = $("#vid"); if(!vid || !vid.textTracks) return null;
+    for(const tt of vid.textTracks){ if(tt.mode === "hidden") return tt; }
+    return null;
+  }
+  function esc(t){ return t.replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+  function paintCaptions(){
+    const wrap = $("#capwrap"); if(!wrap) return;
+    const tt = activeTrack();
+    const cues = tt && tt.activeCues ? tt.activeCues : null;
+    if(!cues || !cues.length){ wrap.innerHTML = ""; return; }
+    const lines = [];
+    for(const c of cues){ String(c.text).split("\n").forEach(x=>{ if(x.trim()) lines.push(x.trim()); }); }
+    wrap.innerHTML = lines.map(x=>
+      '<div class="capline"><span class="cbg"></span><span class="ctx">'+esc(x)+'</span></div>').join("");
+  }
+  function layoutCaptions(){
+    const vid = $("#vid"), wrap = $("#capwrap"); if(!vid || !wrap) return;
+    const box = vid.getBoundingClientRect();
+    if(!box.width) return;
+    // the video letterboxes inside the 16:9 player — find the real picture rect
+    const ar = (vid.videoWidth && vid.videoHeight) ? vid.videoWidth/vid.videoHeight : box.width/box.height;
+    let w = box.width, h = box.height;
+    if(box.width / box.height > ar){ h = box.height; w = h * ar; }
+    else { w = box.width; h = w / ar; }
+    const left = (box.width - w) / 2, top = (box.height - h) / 2;
+    wrap.style.left  = (left + w * 0.04) + "px";
+    wrap.style.width = (w * 0.92) + "px";
+    const fs = Math.max(11, w * 0.057);
+    wrap.style.fontSize = fs + "px";
+    const fd = document.querySelector("#brushcue feDisplacementMap");
+    if(fd) fd.setAttribute("scale", (fs * 0.21).toFixed(2));   // brush roughness tracks the type size
+    if(wrap.dataset.pos === "bottom"){
+      wrap.style.top = ""; wrap.style.bottom = (top + h * 0.12) + "px";
+    } else {
+      wrap.style.bottom = ""; wrap.style.top = (top + h * 0.07) + "px";
     }
   }
 
@@ -606,6 +670,7 @@ function openModal(id){
               <source src="${S.mediaBase}/${v.videoFile}" type="video/mp4">
               ${tracksHTML()}
             </video>
+            <div class="capwrap" id="capwrap"></div>
             <div class="placeholder" id="ph" style="display:none">
               <div class="ph-note">Drop the real .mp4 on the CDN and the 8 .vtt files in /captions — playback + captions go live</div>
             </div>`
@@ -644,7 +709,16 @@ function openModal(id){
   const dl=$("#dl"); if(dl && live) dl.onclick=()=>{ toast(`Downloading ${v.id}.mp4…`); window.location.href = `${S.mediaBase}/${v.videoFile}`; };
   // hide placeholder once real video can play
   const vid=$("#vid");
-  if(vid){ vid.addEventListener("loadeddata",()=>{const ph=$("#ph"); if(ph) ph.style.display="none";}); }
+  if(vid){
+    vid.addEventListener("loadeddata",()=>{const ph=$("#ph"); if(ph) ph.style.display="none";});
+    const relayout = ()=>{ layoutCaptions(); };
+    vid.addEventListener("loadedmetadata", relayout);
+    vid.addEventListener("resize", relayout);
+    window.addEventListener("resize", relayout);
+    for(const tt of vid.textTracks){ tt.addEventListener("cuechange", paintCaptions); }
+    vid.addEventListener("seeked", paintCaptions);
+    vid.addEventListener("emptied", ()=>{ const w=$("#capwrap"); if(w) w.innerHTML=""; });
+  }
   draw();
 }
 
