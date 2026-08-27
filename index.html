@@ -132,16 +132,20 @@ footer .mono{font-family:var(--mono)}
 .mcard-inner{position:relative;width:100%;height:0;transition:transform .55s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
 .mcard.flipped .mcard-inner{transform:rotateY(180deg)}
 .mcard-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(25,28,26,.10)}
-.mcard-front{display:flex;flex-direction:column;justify-content:space-between;padding:18px 20px;color:#fff}
+.mcard-front{display:flex;flex-direction:column;justify-content:space-between;padding:20px 22px 18px;color:#fff}
 .mcard-back{transform:rotateY(180deg);background:#fff;border:1px solid var(--line)}
 .accent-green{background:linear-gradient(150deg,#12904a,#0E7A3C 60%,#0a5f2f)}
 .accent-orange{background:linear-gradient(150deg,#ff7a2e,#F0641E 60%,#c14e14)}
 .accent-pink{background:linear-gradient(150deg,#f24d9e,#E5308A 60%,#b31e6b)}
 .mc-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.mc-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.mc-deck{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.82}
 .mc-num{font-family:var(--mono);font-size:10px;opacity:.85;border:1px solid rgba(255,255,255,.55);border-radius:20px;padding:2px 9px;white-space:nowrap}
-.mc-q{font-family:var(--serif);font-size:21px;line-height:1.26;font-weight:500;margin:12px 0}
-.mc-flip{font-family:var(--mono);font-size:10.5px;opacity:.9;display:flex;align-items:center;gap:7px}
+.mc-bottom{display:flex;flex-direction:column}
+.mc-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.82;margin-bottom:9px}
+.mc-q{font-family:var(--serif);font-size:22px;line-height:1.24;font-weight:500;margin:0 0 16px}
+.mc-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.mc-foot-t{font-family:var(--mono);font-size:10.5px;opacity:.78;line-height:1.35;max-width:60%}
+.mc-flip{font-family:var(--mono);font-size:10.5px;opacity:.92;display:flex;align-items:center;gap:7px;white-space:nowrap}
 .mc-flip .d{width:7px;height:7px;border-radius:50%;background:#fff;opacity:.9}
 .mcb-bar{padding:9px 15px;color:#fff;font-weight:600;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;gap:8px}
 .mcb-bar .n{font-family:var(--mono);font-size:9.5px;opacity:.85;font-weight:400;white-space:nowrap}
@@ -324,18 +328,18 @@ window.SITE = {
       ],
       usmle: ["Step 1 · Musculoskeletal — excitation–contraction coupling","Step 1 · Pharmacology — malignant hyperthermia & dantrolene"],
       cards: [
-        { accent:"green", kicker:"The hook", diagram:"mh1",
+        { accent:"green", kicker:"The hook", diagram:"mh1", deck:"Malignant Hyperthermia", foot:"Excitation–contraction coupling · RyR1",
           q:"What happens when anesthesia unmasks a hidden genetic risk?",
           aTitle:"The trigger",
           lead:"The muscle's calcium gate is thrown wide open.",
           aHtml:"A <b>RyR1</b> (or DHPR) mutation lets certain <b>inhaled anesthetics</b> — or <b>succinylcholine</b> — force RyR1 open. Calcium's gate stays open and <b>green calcium floods</b> the cell. That runaway release is <b>malignant hyperthermia</b>.",
           tag:"Trigger → RyR1 opens → Ca²⁺ flood" },
-        { accent:"orange", kicker:"The mechanism", diagram:"mh2", wide:true,
+        { accent:"orange", kicker:"The mechanism", diagram:"mh2", wide:true, deck:"Malignant Hyperthermia", foot:"RyR1 · SERCA · hypermetabolism",
           q:"Walk through the calcium — from trigger to an overheating muscle.",
           aTitle:"Why the muscle overheats",
           aHtml:"Normally RyR1 opens for a <b>moment</b> and closes. In MH it <b>stays open</b>, so calcium pours out non-stop. <b>SERCA</b> pumps frantically to claw it back — <b>burning ATP</b> every cycle. Endless release + endless pumping = relentless <b>heat, rigidity, and rising CO₂</b>. Hypermetabolism.",
           legend:[["#5AA84E","Ca²⁺"],["#8A54A8","RyR1"],["#AA9C92","SERCA"],["#CE7C4F","SR membrane"],["#F2B23C","ATP"]] },
-        { accent:"pink", kicker:"The payoff", diagram:"mh3",
+        { accent:"pink", kicker:"The payoff", diagram:"mh3", deck:"Malignant Hyperthermia", foot:"The antidote · dantrolene",
           q:"How does dantrolene stop the crisis?",
           aTitle:"Dantrolene calms the gate",
           lead:"Dantrolene quiets RyR1 — it doesn't plug it.",
@@ -743,9 +747,12 @@ function renderCards(v){
   if(sec) sec.style.display="";
   box.innerHTML=cards.map((c,i)=>{
     const acc="accent-"+c.accent, tg="tag-"+c.accent;
-    const front=`<div class="mc-top"><span class="mc-kicker">${c.kicker}</span><span class="mc-num">Card ${i+1} / ${cards.length}</span></div>
-      <div class="mc-q">${c.q}</div>
-      <div class="mc-flip"><span class="d"></span>tap to flip ↻</div>`;
+    const front=`<div class="mc-top"><span class="mc-deck">${c.deck||v.langs.EN.title}</span><span class="mc-num">Card ${i+1} / ${cards.length}</span></div>
+      <div class="mc-bottom">
+        <div class="mc-kicker">${c.kicker}</div>
+        <div class="mc-q">${c.q}</div>
+        <div class="mc-foot"><span class="mc-foot-t">${c.foot||''}</span><span class="mc-flip"><span class="d"></span>tap to flip ↻</span></div>
+      </div>`;
     const back=`<div class="mcb-bar ${acc}"><span>${c.aTitle}</span><span class="n">Card ${i+1} · Answer</span></div>
       <div class="mcb-body ${c.wide?'wide':''}">
         <div class="mcb-text">${c.lead?`<div class="mcb-lead">${c.lead}</div>`:''}${c.aHtml}${c.tag?`<span class="mcb-tag ${tg}">${c.tag}</span>`:''}${c.legend?legendHTML(c.legend):''}</div>
