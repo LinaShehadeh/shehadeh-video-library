@@ -327,25 +327,6 @@ window.SITE = {
         "Explain why RYR1 or CACNA1S (DHPR) mutations cause malignant hyperthermia and how dantrolene reverses it."
       ],
       usmle: ["Step 1 · Musculoskeletal — excitation–contraction coupling","Step 1 · Pharmacology — malignant hyperthermia & dantrolene"],
-      cards: [
-        { accent:"green", kicker:"The hook", diagram:"mh1", deck:"Malignant Hyperthermia", foot:"Excitation–contraction coupling · RyR1",
-          q:"What happens when anesthesia unmasks a hidden genetic risk?",
-          aTitle:"The trigger",
-          lead:"The muscle's calcium gate is thrown wide open.",
-          aHtml:"A <b>RyR1</b> (or DHPR) mutation lets certain <b>inhaled anesthetics</b> — or <b>succinylcholine</b> — force RyR1 open. Calcium's gate stays open and <b>green calcium floods</b> the cell. That runaway release is <b>malignant hyperthermia</b>.",
-          tag:"Trigger → RyR1 opens → Ca²⁺ flood" },
-        { accent:"orange", kicker:"The mechanism", diagram:"mh2", wide:true, deck:"Malignant Hyperthermia", foot:"RyR1 · SERCA · hypermetabolism",
-          q:"Walk through the calcium — from trigger to an overheating muscle.",
-          aTitle:"Why the muscle overheats",
-          aHtml:"Normally RyR1 opens for a <b>moment</b> and closes. In MH it <b>stays open</b>, so calcium pours out non-stop. <b>SERCA</b> pumps frantically to claw it back — <b>burning ATP</b> every cycle. Endless release + endless pumping = relentless <b>heat, rigidity, and rising CO₂</b>. Hypermetabolism.",
-          legend:[["#5AA84E","Ca²⁺"],["#8A54A8","RyR1"],["#AA9C92","SERCA"],["#CE7C4F","SR membrane"],["#F2B23C","ATP"]] },
-        { accent:"pink", kicker:"The payoff", diagram:"mh3", deck:"Malignant Hyperthermia", foot:"The antidote · dantrolene",
-          q:"How does dantrolene stop the crisis?",
-          aTitle:"Dantrolene calms the gate",
-          lead:"Dantrolene quiets RyR1 — it doesn't plug it.",
-          aHtml:"Dantrolene binds the <b>RyR1</b> receptor and <b>dampens</b> its calcium release rather than corking the pore. Release falls, <b>SERCA catches up</b>, cytosolic calcium drops, and the muscle relaxes.",
-          tag:"Treats the crisis — it doesn't fix the gene." }
-      ],
       langs: {
         EN:{ mode:"audio", vtt:"captions/calcium-release.en.vtt",
              title:"How Muscle Releases Its Calcium",
@@ -494,6 +475,7 @@ window.SITE = {
   ]
 };
 </script>
+<script src="cards.js"></script>
 <!-- ===================== end editable content ========================= -->
 
 <header class="site">
@@ -535,6 +517,7 @@ window.SITE = {
 
 <script>
 const S = window.SITE;
+if(window.CARD_CONTENT){S.videos.forEach(function(v){ if(window.CARD_CONTENT[v.id]) v.cards=window.CARD_CONTENT[v.id]; });}
 const LANGS = S.languages;
 const $ = (s,el=document)=>el.querySelector(s);
 
@@ -641,94 +624,7 @@ function renderQuiz(v){
 function legendHTML(items){
   return '<div class="mc-legend">'+items.map(x=>`<span><i style="background:${x[0]}"></i>${x[1]}</span>`).join('')+'</div>';
 }
-function cardDiagram(key){
-  if(key==="mh1") return `<svg viewBox="0 0 820 760" role="img" aria-label="RyR1 open, calcium flooding into the cytosol">
-    <defs>
-      <linearGradient id="wm1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E19A70"/><stop offset="1" stop-color="#9E5A38"/></linearGradient>
-      <radialGradient id="wc1" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#8CC97C"/><stop offset="1" stop-color="#3C7A34"/></radialGradient>
-      <linearGradient id="wr1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A874C4"/><stop offset="1" stop-color="#5E3A78"/></linearGradient>
-    </defs>
-    <text x="16" y="52" font-size="30" font-weight="700" fill="#8a8073">CYTOSOL</text>
-    <text x="16" y="726" font-size="28" font-weight="700" fill="#8a8073">SR LUMEN</text>
-    <rect x="0" y="470" width="820" height="270" fill="#5aa84e19"/>
-    <rect x="0" y="410" width="820" height="66" fill="url(#wm1)"/>
-    <rect x="0" y="410" width="820" height="10" fill="#ffffff47"/>
-    <g fill="url(#wc1)" stroke="#3C7A34" stroke-width="2"><circle cx="80" cy="560" r="26"/><circle cx="150" cy="620" r="26"/><circle cx="230" cy="560" r="26"/><circle cx="120" cy="690" r="26"/><circle cx="300" cy="640" r="26"/><circle cx="60" cy="640" r="26"/><circle cx="210" cy="695" r="26"/><circle cx="360" cy="580" r="26"/><circle cx="430" cy="650" r="26"/><circle cx="520" cy="600" r="26"/><circle cx="600" cy="660" r="26"/><circle cx="690" cy="600" r="26"/><circle cx="760" cy="660" r="26"/><circle cx="660" cy="700" r="26"/><circle cx="470" cy="710" r="26"/></g>
-    <path d="M300 410 L520 410 L470 300 L350 300 Z" fill="url(#wr1)"/>
-    <rect x="330" y="410" width="160" height="70" fill="url(#wr1)"/>
-    <path d="M300 476 L520 476 L505 560 L315 560 Z" fill="url(#wr1)" opacity=".92"/>
-    <ellipse cx="410" cy="300" rx="60" ry="16" fill="#5E3A78"/>
-    <g fill="url(#wc1)" stroke="#3C7A34" stroke-width="2"><circle cx="410" cy="360" r="22"/><circle cx="380" cy="250" r="22"/><circle cx="445" cy="230" r="22"/><circle cx="360" cy="150" r="22"/><circle cx="470" cy="140" r="22"/><circle cx="410" cy="90" r="22"/></g>
-    <text x="540" y="360" font-size="30" font-weight="700" fill="#5E3A78">RyR1</text>
-    <text x="540" y="396" font-size="24" fill="#8a8073">(open)</text>
-  </svg>`;
-  if(key==="mh2") return `<svg viewBox="0 0 1500 470" role="img" aria-label="Normal RyR1 versus MH crisis">
-    <defs>
-      <linearGradient id="wm2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E19A70"/><stop offset="1" stop-color="#9E5A38"/></linearGradient>
-      <radialGradient id="wc2" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#8CC97C"/><stop offset="1" stop-color="#3C7A34"/></radialGradient>
-      <linearGradient id="wr2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A874C4"/><stop offset="1" stop-color="#5E3A78"/></linearGradient>
-      <linearGradient id="ws2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c3b6ac"/><stop offset="1" stop-color="#7D7169"/></linearGradient>
-      <marker id="wah2" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#3C7A34"/></marker>
-    </defs>
-    <text x="20" y="40" font-size="34" font-weight="800" fill="#3C7A34">NORMAL</text>
-    <rect x="0" y="300" width="680" height="150" fill="#5aa84e19"/>
-    <rect x="0" y="250" width="680" height="52" fill="url(#wm2)"/>
-    <path d="M250 250 L360 250 L335 190 L275 190 Z" fill="url(#wr2)"/>
-    <rect x="268" y="250" width="74" height="52" fill="url(#wr2)"/>
-    <g fill="url(#wc2)" stroke="#3C7A34" stroke-width="2"><circle cx="305" cy="150" r="18"/><circle cx="270" cy="110" r="15"/><circle cx="340" cy="120" r="15"/></g>
-    <rect x="470" y="238" width="70" height="120" rx="30" fill="url(#ws2)"/>
-    <path d="M505 150 q40 40 0 84" fill="none" stroke="#3C7A34" stroke-width="5" opacity=".5" marker-end="url(#wah2)"/>
-    <circle cx="505" cy="140" r="16" fill="url(#wc2)" stroke="#3C7A34" stroke-width="2"/>
-    <text x="450" y="410" font-size="26" font-weight="600" fill="#8a8073">SERCA resets it</text>
-    <g fill="url(#wc2)" stroke="#3C7A34" stroke-width="2"><circle cx="90" cy="360" r="20"/><circle cx="150" cy="400" r="20"/><circle cx="210" cy="360" r="20"/><circle cx="430" cy="390" r="20"/><circle cx="590" cy="370" r="20"/><circle cx="360" cy="400" r="20"/></g>
-    <line x1="740" y1="20" x2="740" y2="450" stroke="#ded7c8" stroke-width="4" stroke-dasharray="10 12"/>
-    <g transform="translate(760,0)">
-      <text x="20" y="40" font-size="34" font-weight="800" fill="#E8542A">MH CRISIS</text>
-      <rect x="0" y="300" width="680" height="150" fill="#5aa84e1f"/>
-      <rect x="0" y="250" width="680" height="52" fill="url(#wm2)"/>
-      <path d="M230 250 L380 250 L350 180 L260 180 Z" fill="url(#wr2)"/>
-      <rect x="255" y="250" width="100" height="52" fill="url(#wr2)"/>
-      <ellipse cx="305" cy="180" rx="46" ry="12" fill="#5E3A78"/>
-      <text x="60" y="238" font-size="26" font-weight="700" fill="#5E3A78">stuck</text>
-      <text x="60" y="270" font-size="26" font-weight="700" fill="#5E3A78">open</text>
-      <g fill="url(#wc2)" stroke="#3C7A34" stroke-width="2"><circle cx="305" cy="150" r="20"/><circle cx="260" cy="110" r="20"/><circle cx="350" cy="110" r="20"/><circle cx="300" cy="70" r="20"/><circle cx="230" cy="70" r="18"/><circle cx="385" cy="70" r="18"/><circle cx="330" cy="30" r="16"/></g>
-      <rect x="470" y="238" width="72" height="122" rx="30" fill="url(#ws2)"/>
-      <circle cx="506" cy="299" r="18" fill="#F2B23C"/><text x="497" y="308" font-size="22" font-weight="800" fill="#6b4d10">A</text>
-      <g stroke="#3C7A34" stroke-width="6" fill="none" opacity=".7"><path d="M506 150 q46 46 0 92"/><path d="M545 160 q46 46 0 92"/></g>
-      <text x="452" y="410" font-size="26" font-weight="700" fill="#E8542A">burns ATP → heat</text>
-      <g stroke="#E8542A" stroke-width="5" fill="none" opacity=".8" stroke-linecap="round"><path d="M600 120 q14 -18 28 0 q14 18 28 0"/><path d="M600 80 q14 -18 28 0 q14 18 28 0"/></g>
-      <text x="596" y="55" font-size="26" font-weight="800" fill="#E8542A">CO₂↑</text>
-      <g fill="url(#wc2)" stroke="#3C7A34" stroke-width="2"><circle cx="90" cy="370" r="20"/><circle cx="160" cy="400" r="20"/><circle cx="430" cy="390" r="20"/><circle cx="590" cy="380" r="20"/></g>
-    </g>
-  </svg>`;
-  if(key==="mh3") return `<svg viewBox="0 0 980 760" role="img" aria-label="Dantrolene calms RyR1 while SERCA recovers calcium">
-    <defs>
-      <linearGradient id="wm3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E19A70"/><stop offset="1" stop-color="#9E5A38"/></linearGradient>
-      <radialGradient id="wc3" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#8CC97C"/><stop offset="1" stop-color="#3C7A34"/></radialGradient>
-      <linearGradient id="wr3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A874C4"/><stop offset="1" stop-color="#5E3A78"/></linearGradient>
-      <radialGradient id="wd3" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#7ab8f0"/><stop offset="1" stop-color="#2668A8"/></radialGradient>
-    </defs>
-    <text x="20" y="60" font-size="30" font-weight="700" fill="#8a8073">CYTOSOL</text>
-    <text x="20" y="726" font-size="30" font-weight="700" fill="#8a8073">SR LUMEN</text>
-    <rect x="0" y="470" width="980" height="270" fill="#5aa84e19"/>
-    <rect x="0" y="410" width="980" height="66" fill="url(#wm3)"/>
-    <rect x="0" y="410" width="980" height="10" fill="#ffffff47"/>
-    <g fill="url(#wc3)" stroke="#3C7A34" stroke-width="2"><circle cx="80" cy="560" r="26"/><circle cx="150" cy="620" r="26"/><circle cx="230" cy="560" r="26"/><circle cx="120" cy="690" r="26"/><circle cx="300" cy="640" r="26"/><circle cx="60" cy="640" r="26"/><circle cx="210" cy="695" r="26"/><circle cx="360" cy="580" r="26"/><circle cx="430" cy="650" r="26"/><circle cx="520" cy="600" r="26"/><circle cx="610" cy="660" r="26"/><circle cx="700" cy="600" r="26"/><circle cx="470" cy="710" r="26"/><circle cx="560" cy="700" r="26"/><circle cx="650" cy="705" r="26"/></g>
-    <path d="M300 410 L470 410 L442 340 L328 340 Z" fill="url(#wr3)"/>
-    <rect x="335" y="410" width="130" height="66" fill="url(#wr3)"/>
-    <circle cx="300" cy="330" r="46" fill="url(#wd3)" stroke="#2668A8" stroke-width="3"/>
-    <circle cx="284" cy="316" r="12" fill="#ffffff80"/>
-    <text x="372" y="296" font-size="34" font-weight="800" fill="#2668A8">Dantrolene</text>
-    <text x="372" y="332" font-size="25" fill="#8a8073">binds &amp; calms RyR1</text>
-    <g fill="url(#wc3)" stroke="#3C7A34" stroke-width="2"><circle cx="252" cy="250" r="18" opacity=".9"/><circle cx="340" cy="238" r="16" opacity=".7"/></g>
-    <rect x="800" y="398" width="72" height="122" rx="30" fill="#AA9C92"/>
-    <path d="M836 300 q44 46 0 94" fill="none" stroke="#3C7A34" stroke-width="6" opacity=".6"/>
-    <circle cx="836" cy="290" r="16" fill="url(#wc3)" stroke="#3C7A34" stroke-width="2"/>
-    <text x="744" y="372" font-size="28" font-weight="700" fill="#3C7A34">SERCA</text>
-    <text x="706" y="404" font-size="22" fill="#8a8073">recovers Ca²⁺</text>
-  </svg>`;
-  return "";
-}
+function cardDiagram(key){ return (window.CARD_DIAGRAMS && window.CARD_DIAGRAMS[key]) || ""; }
 let _cardResizeBound=false;
 function sizeCards(){
   document.querySelectorAll("#mcards .mcard").forEach(m=>{
