@@ -357,6 +357,63 @@ window.SITE = {
              title:"Sindrome miastenica di Lambert-Eaton",
              desc:"Come gli autoanticorpi contro i canali del calcio presinaptici di tipo P/Q riducono il rilascio di acetilcolina e indeboliscono il muscolo, e come Firdapse (3,4-DAP) ripristina la trasmissione bloccando i canali del potassio." }
       }
+    },
+    {
+      id: "cardiac-ec-coupling",
+      questions: [
+        {"step": "Step 1", "stem": "When extracellular calcium is removed, cardiac muscle stops contracting within a few beats, while skeletal muscle keeps contracting. Which difference best explains this?", "choices": ["Cardiac RyR2 is opened by a direct mechanical link to the L-type channel", "Cardiac contraction requires Ca²⁺ influx through L-type channels to trigger SR release", "The cardiac SR stores far less calcium than the skeletal SR", "Skeletal muscle lacks SERCA and depends on extracellular calcium", "Cardiac troponin C does not bind calcium"], "answer": 1, "explanation": "In skeletal muscle the DHPR is mechanically coupled to RyR1, so depolarization opens the SR release channel directly and no calcium needs to enter the cell. Cardiac muscle has no such latch: Ca²⁺ must enter through Ca_v1.2, cross the dyadic cleft and bind RyR2 to trigger a much larger SR release — calcium-induced calcium release. Remove extracellular calcium and the trigger disappears."},
+        {"step": "Step 1", "stem": "Most cytosolic calcium is returned to the sarcoplasmic reticulum by SERCA during relaxation. Which protein tonically inhibits SERCA, and what relieves that inhibition?", "choices": ["Calsequestrin; dephosphorylation by calcineurin", "Phospholamban; phosphorylation by protein kinase A", "Troponin I; binding of calcium to troponin C", "Junctin; depolarization of the T-tubule", "Calmodulin; hydrolysis of ATP by the pump"], "answer": 1, "explanation": "Unphosphorylated phospholamban binds SERCA2a and lowers its affinity for calcium, acting as the resting brake on relaxation. β1-adrenergic stimulation raises cAMP, and PKA phosphorylates phospholamban at Ser16; it releases SERCA, reuptake accelerates, and the ventricle relaxes faster. That is lusitropy, and its failure contributes to the diastolic dysfunction of HFpEF."},
+        {"step": "Step 1", "stem": "In forward mode, what is the stoichiometry of the cardiac sodium-calcium exchanger (NCX), and what is its electrical consequence?", "choices": ["1 Na⁺ in : 1 Ca²⁺ out; electroneutral", "3 Na⁺ in : 1 Ca²⁺ out; net inward current, electrogenic", "2 Na⁺ in : 1 Ca²⁺ out; electroneutral", "3 Na⁺ out : 1 Ca²⁺ in; net outward current", "2 K⁺ in : 3 Na⁺ out; electrogenic"], "answer": 1, "explanation": "NCX exchanges three Na⁺ inward for one Ca²⁺ outward, so each cycle carries one net positive charge into the cell. That inward current contributes to the late plateau and to delayed afterdepolarizations when the cell is calcium-overloaded. SERCA handles roughly 70–90% of cytosolic calcium removal in human myocardium; NCX clears most of the rest."},
+        {"step": "Step 2", "stem": "A 74-year-old woman with atrial fibrillation at a ventricular rate of 148/min is given intravenous diltiazem and her rate falls to 90/min. Which coexisting finding would have made this a dangerous choice?", "choices": ["Hypertension", "An ejection fraction of 25% with decompensated heart failure", "Stage 3 chronic kidney disease", "A history of migraine", "Type 2 diabetes mellitus"], "answer": 1, "explanation": "Non-dihydropyridine calcium channel blockers slow AV nodal conduction, but the working myocyte uses the same Ca_v1.2 to set contractile force, so they are negative inotropes. In decompensated HFrEF they can precipitate cardiogenic shock. The other classic contraindication is pre-excited atrial fibrillation (WPW): blocking the AV node favours conduction down the accessory pathway and can degenerate into ventricular fibrillation."}
+      ],
+      plate: "PHYS-005",
+      system: "Cardiovascular Physiology",
+      discipline: "Physiology",
+      duration: "3:35",
+      status: "published",
+      thumb: "membrane",
+      poster: "videos/cardiac-ec-coupling.jpg",
+      videoFile: "cardiac-ec-coupling.mp4",   // -> mediaBase + this (asset on the "media" Release)
+      tags: ["excitation-contraction coupling","calcium-induced calcium release","Ca_v1.2","L-type calcium channel","RyR2","SERCA","phospholamban","NCX","lusitropy","atrial fibrillation","verapamil","diltiazem","HFpEF","HFrEF"],
+      objectives: [
+        "Explain why cardiac muscle, unlike skeletal muscle, needs extracellular calcium: influx through Ca_v1.2 triggers a much larger release from the SR through RyR2.",
+        "Trace how the cell relaxes — SERCA returns most of the calcium to the SR, and NCX extrudes the rest at 3 Na⁺ in : 1 Ca²⁺ out.",
+        "Explain why verapamil and diltiazem slow the ventricular rate in atrial fibrillation, and why the same mechanism makes them dangerous in HFrEF and in pre-excited AF.",
+        "Describe how PKA phosphorylation of phospholamban releases SERCA, and how loss of that lusitropic arm produces diastolic dysfunction in HFpEF."
+      ],
+      usmle: ["Step 1 · Cardiovascular — excitation-contraction coupling and calcium handling","Step 1 · Pharmacology — class IV antiarrhythmics (verapamil, diltiazem)","Step 2 CK · Cardiology — rate control in atrial fibrillation"],
+      langs: {
+        EN:{ mode:"audio", vtt:"captions/cardiac-ec-coupling.en.vtt",
+             title:"Cardiac Excitation-Contraction Coupling",
+             desc:"How calcium entering through Ca_v1.2 triggers a far larger release from the SR, how SERCA and the sodium-calcium exchanger clear it again, why verapamil and diltiazem slow the AV node in atrial fibrillation — and how PKA lifts the phospholamban brake to speed relaxation." },
+        AR:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.ar.vtt",
+             title:"اقتران الإثارة والانقباض في القلب",
+             desc:"كيف يُطلق دخول الكالسيوم عبر Ca_v1.2 تحريرًا أكبر بكثير من الشبكة الساركوبلازمية، وكيف تزيله SERCA والمُبادل صوديوم-كالسيوم، ولماذا يُبطئ فيراباميل وديلتيازيم العقدة الأذينية البطينية — ودور PKA في رفع كابح الفوسفولامبان." },
+        ES:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.es.vtt",
+             title:"Acoplamiento excitación-contracción cardíaco",
+             desc:"Cómo la entrada de calcio por Ca_v1.2 desencadena una liberación mucho mayor desde el retículo sarcoplásmico, cómo lo retiran SERCA y el intercambiador sodio-calcio, por qué el verapamilo y el diltiazem enlentecen el nódulo AV en la fibrilación auricular, y cómo la PKA libera el freno del fosfolambán." },
+        PT:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.pt.vtt",
+             title:"Acoplamento excitação-contração cardíaco",
+             desc:"Como a entrada de cálcio pelo Ca_v1.2 desencadeia uma liberação muito maior do retículo sarcoplasmático, como a SERCA e o trocador sódio-cálcio o removem, por que verapamil e diltiazem reduzem a frequência ventricular na fibrilação atrial, e como a PKA solta o freio do fosfolambano." },
+        FR:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.fr.vtt",
+             title:"Couplage excitation-contraction cardiaque",
+             desc:"Comment l'entrée de calcium par Ca_v1.2 déclenche une libération bien plus importante depuis le réticulum sarcoplasmique, comment SERCA et l'échangeur sodium-calcium l'évacuent, pourquoi le vérapamil et le diltiazem ralentissent le nœud AV dans la fibrillation auriculaire, et comment la PKA libère le frein du phospholamban." },
+        HT:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.ht.vtt",
+             title:"Kouplaj Eksitasyon-Kontraksyon nan Kè a",
+             desc:"Kijan kalsyòm ki antre nan Ca_v1.2 deklanche yon liberasyon ki pi gwo anpil soti nan retikolòm sakoplasmik la, kijan SERCA ak echanjè sodyòm-kalsyòm nan retire l, poukisa verapamil ak diltiazèm ralanti nod AV a nan fibrilasyon atriyal, epi kijan PKA lage fren fosfolanban an." },
+        TL:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.tl.vtt",
+             title:"Cardiac Excitation-Contraction Coupling",
+             desc:"Kung paano ang pagpasok ng kaltsyum sa Ca_v1.2 ang nagpapasimula ng mas malaking paglabas mula sa sarcoplasmic reticulum, kung paano ito nililinis ng SERCA at ng sodium-calcium exchanger, bakit pinapabagal ng verapamil at diltiazem ang AV node sa atrial fibrillation, at kung paano inaalis ng PKA ang preno ng phospholamban." },
+        MS:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.ms.vtt",
+             title:"Gandingan Pengujaan-Pengecutan Jantung",
+             desc:"Bagaimana kemasukan kalsium melalui Ca_v1.2 mencetuskan pelepasan yang jauh lebih besar daripada retikulum sarkoplasma, bagaimana SERCA dan penukar natrium-kalsium membersihkannya, mengapa verapamil dan diltiazem memperlahankan nod AV dalam fibrilasi atrium, dan bagaimana PKA melepaskan brek fosfolamban." },
+        TR:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.tr.vtt",
+             title:"Kalpte Uyarılma-Kasılma Eşlenmesi",
+             desc:"Ca_v1.2 aracılığıyla giren kalsiyumun sarkoplazmik retikulumdan çok daha büyük bir salınımı nasıl tetiklediği, SERCA ve sodyum-kalsiyum değiştiricisinin bunu nasıl temizlediği, verapamil ve diltiazemin atriyal fibrilasyonda AV düğümünü neden yavaşlattığı ve PKA'nın fosfolamban frenini nasıl kaldırdığı." },
+        IT:{ mode:"captions", vtt:"captions/cardiac-ec-coupling.it.vtt",
+             title:"Accoppiamento eccitazione-contrazione cardiaco",
+             desc:"Come l'ingresso di calcio attraverso Ca_v1.2 innesca un rilascio molto maggiore dal reticolo sarcoplasmatico, come la SERCA e lo scambiatore sodio-calcio lo rimuovono, perché verapamil e diltiazem rallentano il nodo AV nella fibrillazione atriale, e come la PKA toglie il freno del fosfolambano." }
+      }
     }
   ]
 };

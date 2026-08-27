@@ -1,3 +1,5 @@
 
 # Big videos live in the GitHub Release "media", not the repo
 videos/*.mp4
+
+_to_delete/

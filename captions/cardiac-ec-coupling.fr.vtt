@@ -1,0 +1,325 @@
+WEBVTT
+
+1
+00:00:00.228 --> 00:00:01.165 line:10%
+Une énigme :
+
+2
+00:00:01.215 --> 00:00:03.744 line:10%
+une cellule cardiaque possède déjà sa propre réserve de calcium —
+
+3
+00:00:03.794 --> 00:00:06.627 line:10%
+alors pourquoi lui faut-il du calcium venu de l'extérieur simplement pour battre ?
+
+4
+00:00:06.709 --> 00:00:08.351 line:10%
+La réponse est un amplificateur.
+
+5
+00:00:08.587 --> 00:00:12.336 line:10%
+Un potentiel d'action ouvre les canaux calciques de type L de la membrane.
+
+6
+00:00:12.395 --> 00:00:14.164 line:10%
+Seuls quelques ions entrent.
+
+7
+00:00:14.329 --> 00:00:16.945 line:10%
+Ils traversent la fente et touchent RyR2,
+
+8
+00:00:16.995 --> 00:00:19.687 line:10%
+le canal de libération du réticulum sarcoplasmique —
+
+9
+00:00:19.737 --> 00:00:22.155 line:10%
+et le canal de type L se referme derrière eux.
+
+10
+00:00:22.624 --> 00:00:26.590 line:10%
+RyR2 s'ouvre et la réserve se déverse dans le cytosol.
+
+11
+00:00:26.840 --> 00:00:30.370 line:10%
+Quelques ions entrent ; des dizaines sortent.
+
+12
+00:00:30.523 --> 00:00:34.012 line:10%
+C'est la libération de calcium induite par le
+
+13
+00:00:34.378 --> 00:00:36.857 line:10%
+calcium — et c'est ce qui fait
+
+14
+00:00:36.967 --> 00:00:38.936 line:10%
+se contracter le cœur.
+
+15
+00:00:39.469 --> 00:00:41.814 line:10%
+Pour se relâcher, le calcium doit partir.
+
+16
+00:00:41.995 --> 00:00:44.199 line:10%
+SERCA en repompe la majeure partie dans la réserve,
+
+17
+00:00:44.249 --> 00:00:45.986 line:10%
+en consommant de l'ATP.
+
+18
+00:00:46.061 --> 00:00:48.488 line:10%
+L'échangeur sodium-calcium évacue le reste —
+
+19
+00:00:48.538 --> 00:00:50.980 line:10%
+trois sodiums qui entrent pour chaque calcium qui sort.
+
+20
+00:00:51.455 --> 00:00:52.768 line:10%
+Maintenant la partie utile.
+
+21
+00:00:52.897 --> 00:00:55.298 line:10%
+Ce même canal de type L remplit une seconde fonction.
+
+22
+00:00:55.461 --> 00:01:01.189 line:10%
+Dans le nœud sinusal et le nœud AV, il n'y a presque pas de canaux sodiques rapides — là, le calcium ne déclenche pas le battement.
+
+23
+00:01:01.255 --> 00:01:02.323 line:10%
+Il le porte.
+
+24
+00:01:02.601 --> 00:01:06.397 line:10%
+Dans la fibrillation auriculaire, les oreillettes se déchargent cinq cents fois par minute,
+
+25
+00:01:06.447 --> 00:01:09.746 line:10%
+et le nœud AV est la seule porte électrique vers le ventricule.
+
+26
+00:01:10.219 --> 00:01:12.163 line:10%
+Le vérapamil et le diltiazem —
+
+27
+00:01:12.213 --> 00:01:15.262 line:10%
+les inhibiteurs calciques non dihydropyridiniques —
+
+28
+00:01:15.312 --> 00:01:17.209 line:10%
+bloquent ce canal de type L.
+
+29
+00:01:17.627 --> 00:01:20.779 line:10%
+La conduction ralentit, la période réfractaire s'allonge,
+
+30
+00:01:20.829 --> 00:01:24.339 line:10%
+moins d'influx passent et la fréquence ventriculaire chute.
+
+31
+00:01:24.389 --> 00:01:27.929 line:10%
+Mais le myocyte contractile utilise ce même canal pour régler sa force.
+
+32
+00:01:27.979 --> 00:01:30.089 line:10%
+Bloquez-le là et la contraction faiblit — c'est pourquoi ces
+
+33
+00:01:30.139 --> 00:01:32.739 line:10%
+médicaments sont dangereux dans un cœur défaillant et
+
+34
+00:01:32.789 --> 00:01:35.315 line:10%
+dans la fibrillation auriculaire pré-excitée.
+
+35
+00:01:35.784 --> 00:01:38.716 line:10%
+Cela n'arrête pas la fibrillation. Cela ne fait que rétrécir la porte.
+
+36
+00:01:38.963 --> 00:01:40.450 line:10%
+Un dernier élément.
+
+37
+00:01:40.787 --> 00:01:42.510 line:10%
+SERCA ne fonctionne pas
+
+38
+00:01:42.947 --> 00:01:46.979 line:10%
+librement. Une petite protéine, le phospholamban, se pose sur elle
+
+39
+00:01:47.072 --> 00:01:49.439 line:10%
+et la retient — c'est le frein de repos
+
+40
+00:01:49.518 --> 00:01:51.430 line:10%
+de la relaxation.
+
+41
+00:01:51.480 --> 00:01:54.274 line:10%
+Phosphorylez le phospholamban et il lâche prise.
+
+42
+00:01:54.324 --> 00:01:55.867 line:10%
+SERCA s'accélère, le calcium est
+
+43
+00:01:55.917 --> 00:01:57.917 line:10%
+évacué plus vite et le cœur
+
+44
+00:01:57.968 --> 00:01:59.374 line:10%
+se relâche plus vite.
+
+45
+00:01:59.501 --> 00:02:01.239 line:10%
+C'est la lusitropie.
+
+46
+00:02:01.424 --> 00:02:03.531 line:10%
+Et un seul signal fait tout cela.
+
+47
+00:02:03.581 --> 00:02:06.930 line:10%
+L'adrénaline active le récepteur bêta-1, l'AMPc monte et la
+
+48
+00:02:06.980 --> 00:02:08.361 line:10%
+PKA se met au travail —
+
+49
+00:02:08.419 --> 00:02:11.153 line:10%
+sur trois cibles. L'AMPc redresse le courant pacemaker,
+
+50
+00:02:11.203 --> 00:02:12.891 line:10%
+donc le
+
+51
+00:02:12.993 --> 00:02:15.880 line:10%
+cœur bat plus vite. La PKA phosphoryle le canal calcique de type L,
+
+52
+00:02:15.930 --> 00:02:18.542 line:10%
+donc plus de calcium entre et
+
+53
+00:02:18.592 --> 00:02:21.007 line:10%
+la contraction est plus forte.
+
+54
+00:02:21.057 --> 00:02:22.845 line:10%
+Et la PKA phosphoryle le phospholamban,
+
+55
+00:02:22.895 --> 00:02:25.390 line:10%
+donc le cœur se relâche plus vite.
+
+56
+00:02:25.461 --> 00:02:26.449 line:10%
+Plus vite,
+
+57
+00:02:26.678 --> 00:02:27.669 line:10%
+plus fort,
+
+58
+00:02:27.784 --> 00:02:30.511 line:10%
+et une relaxation plus rapide — un seul signal.
+
+59
+00:02:31.039 --> 00:02:32.565 line:10%
+Le tonus sympathique l'augmente.
+
+60
+00:02:32.615 --> 00:02:34.920 line:10%
+Le vérapamil le diminue.
+
+61
+00:02:35.011 --> 00:02:37.797 line:10%
+Et quand le troisième bras fait défaut et que le cœur ne peut
+
+62
+00:02:37.847 --> 00:02:39.062 line:10%
+plus se relâcher,
+
+63
+00:02:39.521 --> 00:02:43.561 line:10%
+le remplissage échoue. C'est la dysfonction diastolique de l'IC à FEVG préservée.
+
+64
+00:02:44.032 --> 00:02:45.414 line:10%
+En résumé. Le muscle cardiaque,
+
+65
+00:02:45.501 --> 00:02:47.845 line:10%
+contrairement au muscle squelettique,
+
+66
+00:02:47.895 --> 00:02:50.011 line:10%
+a besoin de calcium extracellulaire :
+
+67
+00:02:50.094 --> 00:02:55.239 line:10%
+l'entrée par les canaux de type L déclenche une libération bien plus importante depuis le réticulum sarcoplasmique.
+
+68
+00:02:55.289 --> 00:02:58.595 line:10%
+SERCA et l'échangeur sodium-calcium l'évacuent ensuite.
+
+69
+00:02:58.741 --> 00:03:02.123 line:10%
+Ce même canal de type L porte la dépolarisation dans le nœud AV — c'est pourquoi le
+
+70
+00:03:02.173 --> 00:03:06.935 line:10%
+vérapamil et le diltiazem ralentissent la fréquence ventriculaire dans la fibrillation auriculaire.
+
+71
+00:03:07.171 --> 00:03:09.899 line:10%
+Et comme ce canal règle aussi la force contractile,
+
+72
+00:03:09.949 --> 00:03:12.035 line:10%
+le prix à payer est un effet inotrope négatif :
+
+73
+00:03:12.143 --> 00:03:15.214 line:10%
+à éviter dans l'insuffisance cardiaque à fraction d'éjection réduite
+
+74
+00:03:15.264 --> 00:03:17.737 line:10%
+et dans la fibrillation auriculaire pré-excitée.
+
+75
+00:03:18.480 --> 00:03:19.590 line:10%
+Et une dernière chose.
+
+76
+00:03:19.862 --> 00:03:22.169 line:10%
+Le tonus sympathique règle
+
+77
+00:03:22.219 --> 00:03:24.292 line:10%
+les trois : l'AMPc accélère le nœud,
+
+78
+00:03:24.342 --> 00:03:26.510 line:10%
+la PKA ouvre davantage de canaux de type L,
+
+79
+00:03:26.560 --> 00:03:29.378 line:10%
+et la PKA détache le phospholamban de SERCA.
+
+80
+00:03:29.455 --> 00:03:32.157 line:10%
+Perdez ce dernier et le cœur ne peut
+
+81
+00:03:32.207 --> 00:03:35.087 line:10%
+plus se relâcher — c'est l'IC à FEVG préservée.

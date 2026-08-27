@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.228 --> 00:00:01.165 line:10%
+Here's a puzzle:
+
+2
+00:00:01.215 --> 00:00:03.744 line:10%
+a heart cell holds its own store of calcium —
+
+3
+00:00:03.794 --> 00:00:06.627 line:10%
+so why does it need calcium from outside just to beat?
+
+4
+00:00:06.709 --> 00:00:08.351 line:10%
+The answer is an amplifier.
+
+5
+00:00:08.587 --> 00:00:12.336 line:10%
+An action potential opens the L-type calcium channels in the membrane.
+
+6
+00:00:12.395 --> 00:00:14.164 line:10%
+Only a few ions enter.
+
+7
+00:00:14.329 --> 00:00:16.945 line:10%
+They cross the gap and touch RyR2,
+
+8
+00:00:16.995 --> 00:00:19.687 line:10%
+the release channel on the sarcoplasmic reticulum —
+
+9
+00:00:19.737 --> 00:00:22.155 line:10%
+and the L-type channel closes behind them.
+
+10
+00:00:22.624 --> 00:00:26.590 line:10%
+RyR2 opens, and the store pours out into the cytosol.
+
+11
+00:00:26.840 --> 00:00:30.370 line:10%
+A handful of ions in; dozens out.
+
+12
+00:00:30.523 --> 00:00:34.012 line:10%
+That is calcium-induced calcium release —
+
+13
+00:00:34.378 --> 00:00:36.857 line:10%
+and it's what makes
+
+14
+00:00:36.967 --> 00:00:38.936 line:10%
+the heart contract.
+
+15
+00:00:39.469 --> 00:00:41.814 line:10%
+To relax, the calcium has to go.
+
+16
+00:00:41.995 --> 00:00:44.199 line:10%
+SERCA pumps most of it back into the store,
+
+17
+00:00:44.249 --> 00:00:45.986 line:10%
+burning ATP to do it.
+
+18
+00:00:46.061 --> 00:00:48.488 line:10%
+The sodium-calcium exchanger clears the rest —
+
+19
+00:00:48.538 --> 00:00:50.980 line:10%
+three sodium in for every one calcium out.
+
+20
+00:00:51.455 --> 00:00:52.768 line:10%
+Now the useful part.
+
+21
+00:00:52.897 --> 00:00:55.298 line:10%
+That same L-type channel does a second job.
+
+22
+00:00:55.461 --> 00:01:01.189 line:10%
+In the SA and AV node there are almost no fast sodium channels — so there, calcium doesn't trigger the beat.
+
+23
+00:01:01.255 --> 00:01:02.323 line:10%
+It carries it.
+
+24
+00:01:02.601 --> 00:01:06.397 line:10%
+In atrial fibrillation the atria fire five hundred times a minute,
+
+25
+00:01:06.447 --> 00:01:09.746 line:10%
+and the AV node is the only electrical door to the ventricle.
+
+26
+00:01:10.219 --> 00:01:12.163 line:10%
+Verapamil and diltiazem —
+
+27
+00:01:12.213 --> 00:01:15.262 line:10%
+the non-dihydropyridine calcium channel blockers —
+
+28
+00:01:15.312 --> 00:01:17.209 line:10%
+block that L-type channel.
+
+29
+00:01:17.627 --> 00:01:18.940 line:10%
+Conduction slows,
+
+30
+00:01:18.990 --> 00:01:20.779 line:10%
+the refractory period lengthens,
+
+31
+00:01:20.829 --> 00:01:22.371 line:10%
+fewer impulses get through,
+
+32
+00:01:22.421 --> 00:01:24.339 line:10%
+and the ventricular rate falls.
+
+33
+00:01:24.389 --> 00:01:27.929 line:10%
+But the working myocyte uses that same channel to set its force.
+
+34
+00:01:27.979 --> 00:01:30.089 line:10%
+Block it there and the squeeze weakens —
+
+35
+00:01:30.139 --> 00:01:32.739 line:10%
+which is why these drugs are dangerous in a failing heart,
+
+36
+00:01:32.789 --> 00:01:35.315 line:10%
+and in pre-excited atrial fibrillation.
+
+37
+00:01:35.784 --> 00:01:38.716 line:10%
+It doesn't stop the fibrillation. It just narrows the door.
+
+38
+00:01:38.963 --> 00:01:40.450 line:10%
+One last piece.
+
+39
+00:01:40.787 --> 00:01:42.510 line:10%
+SERCA doesn't run free.
+
+40
+00:01:42.947 --> 00:01:46.979 line:10%
+A small protein called phospholamban sits on it and holds
+
+41
+00:01:47.072 --> 00:01:49.439 line:10%
+it back — that's the resting
+
+42
+00:01:49.518 --> 00:01:51.430 line:10%
+brake on relaxation.
+
+43
+00:01:51.480 --> 00:01:54.274 line:10%
+Phosphorylate phospholamban, and it lets go.
+
+44
+00:01:54.324 --> 00:01:55.867 line:10%
+SERCA speeds up,
+
+45
+00:01:55.917 --> 00:01:57.917 line:10%
+calcium clears faster,
+
+46
+00:01:57.968 --> 00:01:59.374 line:10%
+and the heart relaxes faster.
+
+47
+00:01:59.501 --> 00:02:01.239 line:10%
+That's lusitropy.
+
+48
+00:02:01.424 --> 00:02:03.531 line:10%
+And one signal does all of it.
+
+49
+00:02:03.581 --> 00:02:06.930 line:10%
+Adrenaline hits the beta-one receptor, cAMP rises,
+
+50
+00:02:06.980 --> 00:02:08.361 line:10%
+and PKA goes to work —
+
+51
+00:02:08.419 --> 00:02:11.153 line:10%
+on three targets. cAMP steepens the
+
+52
+00:02:11.203 --> 00:02:12.891 line:10%
+pacemaker current,
+
+53
+00:02:12.993 --> 00:02:15.880 line:10%
+so the heart beats faster. PKA phosphorylates
+
+54
+00:02:15.930 --> 00:02:18.542 line:10%
+the L-type calcium channel,
+
+55
+00:02:18.592 --> 00:02:21.007 line:10%
+so more calcium enters and the squeeze is stronger.
+
+56
+00:02:21.057 --> 00:02:22.845 line:10%
+And PKA phosphorylates
+
+57
+00:02:22.895 --> 00:02:25.390 line:10%
+phospholamban, so the heart relaxes faster.
+
+58
+00:02:25.461 --> 00:02:26.449 line:10%
+Faster,
+
+59
+00:02:26.678 --> 00:02:27.669 line:10%
+harder,
+
+60
+00:02:27.784 --> 00:02:30.511 line:10%
+quicker to relax — one signal.
+
+61
+00:02:31.039 --> 00:02:32.565 line:10%
+Sympathetic drive turns it up.
+
+62
+00:02:32.615 --> 00:02:34.920 line:10%
+Verapamil turns it down.
+
+63
+00:02:35.011 --> 00:02:37.797 line:10%
+And when the third arm fails and the
+
+64
+00:02:37.847 --> 00:02:39.062 line:10%
+heart can't relax,
+
+65
+00:02:39.521 --> 00:02:43.561 line:10%
+filling fails. That's the diastolic dysfunction of HFpEF.
+
+66
+00:02:44.032 --> 00:02:45.414 line:10%
+So, to recap.
+
+67
+00:02:45.501 --> 00:02:46.570 line:10%
+Cardiac muscle,
+
+68
+00:02:46.620 --> 00:02:47.845 line:10%
+unlike skeletal,
+
+69
+00:02:47.895 --> 00:02:50.011 line:10%
+needs extracellular calcium:
+
+70
+00:02:50.094 --> 00:02:55.239 line:10%
+influx through L-type channels triggers a much larger release from the SR. SERCA and the
+
+71
+00:02:55.289 --> 00:02:58.595 line:10%
+sodium-calcium exchanger clear it again. That same L-type
+
+72
+00:02:58.741 --> 00:03:02.123 line:10%
+channel carries the upstroke in the AV node —
+
+73
+00:03:02.173 --> 00:03:06.935 line:10%
+which is why verapamil and diltiazem slow the ventricular rate in atrial fibrillation.
+
+74
+00:03:07.171 --> 00:03:09.899 line:10%
+And because the channel also sets contractile force,
+
+75
+00:03:09.949 --> 00:03:12.035 line:10%
+the cost is negative inotropy:
+
+76
+00:03:12.143 --> 00:03:15.214 line:10%
+avoid them in heart failure with reduced ejection fraction,
+
+77
+00:03:15.264 --> 00:03:17.737 line:10%
+and in pre-excited AF.
+
+78
+00:03:18.480 --> 00:03:19.590 line:10%
+And one more.
+
+79
+00:03:19.862 --> 00:03:22.169 line:10%
+Sympathetic drive tunes
+
+80
+00:03:22.219 --> 00:03:24.292 line:10%
+all three: cAMP speeds the node,
+
+81
+00:03:24.342 --> 00:03:26.510 line:10%
+PKA opens more L-type channels,
+
+82
+00:03:26.560 --> 00:03:29.378 line:10%
+and PKA takes phospholamban
+
+83
+00:03:29.455 --> 00:03:32.157 line:10%
+off SERCA. Lose that last one,
+
+84
+00:03:32.207 --> 00:03:35.087 line:10%
+and the heart can't relax — that's HFpEF.
