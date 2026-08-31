@@ -174,6 +174,10 @@ footer .mono{font-family:var(--mono)}
   border-radius:.32em .21em .35em .19em;filter:url(#brushcue);z-index:1}
 .capline .ctx{position:relative;z-index:2;text-shadow:0 .03em .08em rgba(90,40,0,.34)}
 .capline sub{font-size:.62em;vertical-align:-.2em}
+/* Video 6 sits on white artwork, where the orange brush glares and white-on-orange
+   loses contrast. Same brush, charcoal ink. */
+.capwrap.dark .capline .cbg{background:#232A36}
+.capwrap.dark .capline .ctx{text-shadow:0 .03em .10em rgba(0,0,0,.45)}
 </style>
 </head>
 <body>
@@ -471,6 +475,65 @@ window.SITE = {
              title:"Accoppiamento eccitazione-contrazione cardiaco",
              desc:"Come l'ingresso di calcio attraverso Ca_v1.2 innesca un rilascio molto maggiore dal reticolo sarcoplasmatico, come la SERCA e lo scambiatore sodio-calcio lo rimuovono, perché verapamil e diltiazem rallentano il nodo AV nella fibrillazione atriale, e come la PKA toglie il freno del fosfolambano." }
       }
+    },
+    {
+      id: "smooth-muscle-tone",
+      questions: [
+        {"step": "Step 1", "stem": "A researcher studying vascular smooth muscle finds that raising cytosolic calcium produces contraction even though the tissue contains no troponin. Calcium-dependent activation in this tissue is best explained by which mechanism?", "choices": ["Calcium binds troponin C, shifting tropomyosin off the actin binding site", "Calcium\u2013calmodulin activates myosin light chain kinase, which phosphorylates the regulatory light chain", "Calcium directly phosphorylates the myosin heavy chain", "Calcium activates myosin light chain phosphatase, exposing the actin site", "Calcium opens store-operated channels that depolarize the cell and shorten it mechanically"], "answer": 1, "explanation": "Smooth muscle regulation is thick-filament based, not thin-filament based. Calcium binds calmodulin; the Ca\u00b2\u207a\u2013calmodulin complex activates myosin light chain kinase (MLCK), and MLCK phosphorylates the myosin regulatory light chain. Only a phosphorylated head can bind actin and cycle. Troponin is absent from smooth muscle \u2014 tropomyosin is present but does not move in a calcium-dependent way, so choice A describes striated muscle. MLCP (choice D) opposes contraction rather than enabling it."},
+        {"step": "Step 1", "stem": "A vascular smooth muscle cell maintains a steady contraction for several hours while ATP consumption and myosin light chain phosphorylation both fall well below their peak values. Which property best accounts for this?", "choices": ["Sustained maximal MLCK activity", "Irreversible actin\u2013myosin cross-linking", "Slowly cycling dephosphorylated cross-bridges that remain attached (the latch state)", "Continuous calcium release from the sarcoplasmic reticulum", "Conversion of smooth muscle myosin to a skeletal muscle isoform"], "answer": 2, "explanation": "In the latch state a cross-bridge that has been dephosphorylated while still bound to actin detaches very slowly. Force is maintained with a low phosphorylation level and a very low rate of ATP hydrolysis, which is how a resistance vessel holds tone economically for hours. The attachment is not irreversible (choice B) \u2014 latched bridges do eventually cycle, just slowly."},
+        {"step": "Step 2", "stem": "A 61-year-old man with stage 2 hypertension is started on amlodipine. Three weeks later his blood pressure is improved but he reports bilateral ankle swelling. Physical examination shows pitting edema to mid-shin, clear lungs, no jugular venous distention, and a normal serum albumin and creatinine. Which mechanism best explains his edema?", "choices": ["Sodium and water retention from a fall in glomerular filtration rate", "Preferential arteriolar dilation without venodilation, raising capillary hydrostatic pressure", "Reduced plasma oncotic pressure from drug-induced protein loss", "Left ventricular systolic dysfunction caused by negative inotropy", "Lymphatic obstruction from direct drug toxicity"], "answer": 1, "explanation": "Dihydropyridines dilate precapillary arterioles far more than postcapillary venules. More flow arrives at the capillary while outflow resistance is unchanged, so capillary hydrostatic pressure rises and fluid filters into the interstitium. The edema is therefore a direct consequence of the drug\u2019s intended mechanism, not fluid overload \u2014 which is why a loop diuretic works poorly for it, while adding an ACE inhibitor or ARB (which dilates the venous side too) often relieves it. Clear lungs, no JVD and normal albumin and creatinine argue against choices A, C and D."}
+      ],
+      plate: "PHYS-006",
+      system: "Cardiovascular Physiology",
+      discipline: "Physiology",
+      duration: "2:20",
+      status: "published",
+      thumb: "muscle",
+      poster: "videos/smooth-muscle-tone.jpg",
+      captionPos: "bottom",     // the artwork is on white; the clear band is at the foot
+      captionStyle: "dark",     // orange-on-white glares — this one uses the charcoal brush
+      captionInset: 0.035,      // filaments run to 86% of frame height, so sit lower than the default
+      videoFile: "smooth-muscle-tone.mp4",   // -> mediaBase + this (asset on the "media" Release)
+      tags: ["vascular smooth muscle","vascular tone","calmodulin","MLCK","MLCP","latch state","L-type calcium channel","dihydropyridine","IP3","nitric oxide","cGMP","guanylyl cyclase","endothelial dysfunction","hypertension","amlodipine","nitroprusside","ankle edema"],
+      objectives: [
+        "Explain why smooth muscle needs no troponin: calcium binds calmodulin, and the resulting complex activates MLCK to phosphorylate the myosin regulatory light chain — the switch sits on the thick filament.",
+        "Describe tone as the balance between MLCK and myosin light chain phosphatase, and explain how the latch state holds that tone for hours at very low ATP cost.",
+        "Contrast the two relaxation arms — cAMP inhibits MLCK, while NO → guanylyl cyclase → cGMP activates MLCP — and explain why acetylcholine needs an intact endothelium while nitroprusside does not.",
+        "Explain how amlodipine lowers cytosolic calcium by blocking L-type entry while SERCA, PMCA and NCX keep removing it, and why arteriolar dilation without venodilation produces ankle edema."
+      ],
+      usmle: ["Step 1 · Cardiovascular — vascular smooth muscle contraction and the regulation of tone","Step 1 · Pharmacology — dihydropyridine calcium channel blockers and nitrovasodilators","Step 2 CK · Cardiology — antihypertensive selection and drug-related edema"],
+      langs: {
+        EN:{ mode:"audio", vtt:"captions/smooth-muscle-tone.en.vtt",
+             title:"Smooth Muscle Contraction & Vascular Tone",
+             desc:"Why smooth muscle needs no troponin: calcium binds calmodulin, MLCK phosphorylates the myosin itself, and a phosphatase takes it straight back off — so tone is a tug of war over one phosphate. Then how cAMP, nitric oxide, nitroprusside and amlodipine each change who wins, and why the ankles swell." },
+        AR:{ mode:"captions", vtt:"captions/smooth-muscle-tone.ar.vtt",
+             title:"انقباض العضلات الملساء والتوتر الوعائي",
+             desc:"لماذا لا تحتاج العضلة الملساء إلى تروبونين: يرتبط الكالسيوم بالكالمودولين، ويفسفر كيناز السلسلة الخفيفة الميوسين نفسه، ثم ينزع الفوسفاتاز الفوسفات مباشرة — فالتوتر شدٌّ وجذب حول فوسفات واحد. ثم كيف يغيّر كلٌّ من cAMP وأكسيد النيتريك والنيتروبروسيد والأملوديبين من يفوز، ولماذا تتورم الكاحلان." },
+        ES:{ mode:"captions", vtt:"captions/smooth-muscle-tone.es.vtt",
+             title:"Contracción del músculo liso y tono vascular",
+             desc:"Por qué el músculo liso no necesita troponina: el calcio se une a la calmodulina, la MLCK fosforila la propia miosina y una fosfatasa lo retira enseguida — el tono es un tira y afloja por un solo fosfato. Después, cómo el AMPc, el óxido nítrico, el nitroprusiato y el amlodipino cambian quién gana, y por qué se hinchan los tobillos." },
+        PT:{ mode:"captions", vtt:"captions/smooth-muscle-tone.pt.vtt",
+             title:"Contração do músculo liso e tônus vascular",
+             desc:"Por que o músculo liso não precisa de troponina: o cálcio liga-se à calmodulina, a MLCK fosforila a própria miosina e uma fosfatase retira o fosfato logo em seguida — o tônus é um cabo de guerra por um fosfato. Depois, como o AMPc, o óxido nítrico, o nitroprussiato e a anlodipina mudam quem vence, e por que os tornozelos incham." },
+        FR:{ mode:"captions", vtt:"captions/smooth-muscle-tone.fr.vtt",
+             title:"Contraction du muscle lisse et tonus vasculaire",
+             desc:"Pourquoi le muscle lisse n'a pas besoin de troponine : le calcium se lie à la calmoduline, la MLCK phosphoryle la myosine elle-même et une phosphatase le retire aussitôt — le tonus est un bras de fer autour d'un seul phosphate. Puis comment l'AMPc, le monoxyde d'azote, le nitroprussiate et l'amlodipine changent le vainqueur, et pourquoi les chevilles gonflent." },
+        HT:{ mode:"captions", vtt:"captions/smooth-muscle-tone.ht.vtt",
+             title:"Kontraksyon Misk Lis ak Tonis Vaskilè",
+             desc:"Poukisa misk lis pa bezwen twoponin: kalsyòm mare ak kalmodilin, MLCK fosforile myozin nan menm, epi yon fosfataz wete l touswit — tonis se yon rale mennen vini sou yon sèl fosfat. Apre sa, kijan cAMP, oksid nitrik, nitropwisid ak amlodipine chanje kiyès ki genyen, epi poukisa chevi yo anfle." },
+        TL:{ mode:"captions", vtt:"captions/smooth-muscle-tone.tl.vtt",
+             title:"Smooth Muscle Contraction at Vascular Tone",
+             desc:"Bakit hindi kailangan ng troponin ng smooth muscle: nagbubuklod ang calcium sa calmodulin, pinopospeytan ng MLCK ang mismong myosin, at agad itong inaalis ng isang phosphatase — ang tono ay hilahan ng lubid sa isang pospeyt. Pagkatapos, kung paano binabago ng cAMP, nitric oxide, nitroprusside at amlodipine kung sino ang mananalo, at bakit namamaga ang bukung-bukong." },
+        MS:{ mode:"captions", vtt:"captions/smooth-muscle-tone.ms.vtt",
+             title:"Pengecutan Otot Licin dan Tonus Vaskular",
+             desc:"Mengapa otot licin tidak memerlukan troponin: kalsium terikat pada kalmodulin, MLCK memfosforilasi miosin itu sendiri, dan satu fosfatase menanggalkannya semula — tonus ialah tarik tali atas satu fosfat. Kemudian bagaimana cAMP, nitrik oksida, nitroprusida dan amlodipina mengubah siapa yang menang, dan mengapa buku lali membengkak." },
+        TR:{ mode:"captions", vtt:"captions/smooth-muscle-tone.tr.vtt",
+             title:"Düz Kas Kasılması ve Damar Tonusu",
+             desc:"Düz kasın neden troponine ihtiyacı yok: kalsiyum kalmoduline bağlanır, MLCK miyozinin kendisini fosforiller ve bir fosfataz onu hemen geri alır — tonus tek bir fosfat üzerinde bir halat çekme yarışıdır. Ardından cAMP, nitrik oksit, nitroprussid ve amlodipinin kazananı nasıl değiştirdiği ve ayak bileklerinin neden şiştiği." },
+        IT:{ mode:"captions", vtt:"captions/smooth-muscle-tone.it.vtt",
+             title:"Contrazione della muscolatura liscia e tono vascolare",
+             desc:"Perché il muscolo liscio non ha bisogno di troponina: il calcio si lega alla calmodulina, la MLCK fosforila la miosina stessa e una fosfatasi la toglie subito — il tono è un tiro alla fune su un solo fosfato. Poi come AMPc, ossido nitrico, nitroprussiato e amlodipina cambiano chi vince, e perché si gonfiano le caviglie." }
+      }
     }
   ]
 };
@@ -703,6 +766,8 @@ function openModal(id){
     if(wrap){
       wrap.classList.toggle("rtl", rtl);
       wrap.dataset.pos = v.captionPos || "top";
+      wrap.classList.toggle("dark", v.captionStyle === "dark");
+      wrap.dataset.inset = (v.captionInset != null) ? String(v.captionInset) : "";
       layoutCaptions(); paintCaptions();
     }
   }
@@ -740,10 +805,12 @@ function openModal(id){
     wrap.style.fontSize = fs + "px";
     const fd = document.querySelector("#brushcue feDisplacementMap");
     if(fd) fd.setAttribute("scale", (fs * 0.21).toFixed(2));   // brush roughness tracks the type size
+    // a video whose artwork runs close to one edge can set its own inset
+    const ins = parseFloat(wrap.dataset.inset);
     if(wrap.dataset.pos === "bottom"){
-      wrap.style.top = ""; wrap.style.bottom = (top + h * 0.12) + "px";
+      wrap.style.top = ""; wrap.style.bottom = (top + h * (isNaN(ins) ? 0.12 : ins)) + "px";
     } else {
-      wrap.style.bottom = ""; wrap.style.top = (top + h * 0.07) + "px";
+      wrap.style.bottom = ""; wrap.style.top = (top + h * (isNaN(ins) ? 0.07 : ins)) + "px";
     }
   }
 

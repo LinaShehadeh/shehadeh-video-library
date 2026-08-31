@@ -371,6 +371,141 @@
     +'<text x="150" y="648" font-size="22" fill="#8a3310">• decompensated HFrEF (negative inotrope)</text>'
     +'<text x="150" y="686" font-size="22" fill="#8a3310">• pre-excited AF / WPW (favors accessory path)</text></svg>';
 
+
+  /* ============== VIDEO 6 — Smooth Muscle Contraction & Vascular Tone ====== */
+  C.mlcp = "#2FA58C"; C.mlcpD = "#1d6d5c";      // phosphatase (teal)
+  C.mlck = "#E8A33C"; C.mlckD = "#a86f16";      // kinase (amber)
+  C.myo  = "#9E63C6"; C.myoD  = "#6b3a8c";      // myosin (violet)
+  C.act  = "#C1563F"; C.actD  = "#8a3626";      // actin (brick)
+  C.cam  = "#E3D2A6"; C.camD  = "#a89463";      // calmodulin (sand)
+  C.drug = "#F07020"; C.drugD = "#b04a0c";      // amlodipine (orange)
+
+  function smArrow(id, col){
+    return '<marker id="'+id+'" markerWidth="12" markerHeight="12" refX="6" refY="6" '
+      +'markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L12 6 L0 12 z" fill="'+col+'"/></marker>';
+  }
+
+  /* card 1 — no troponin: calcium works through calmodulin onto the MYOSIN */
+  D.sm1 = '<svg viewBox="0 0 820 760" role="img" aria-label="Calcium binds calmodulin, calmodulin activates MLCK, and MLCK phosphorylates the myosin head so it can bind actin">'
+    +'<defs><radialGradient id="sc1" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="'+C.caL+'"/><stop offset="1" stop-color="'+C.caD+'"/></radialGradient>'
+    +'<linearGradient id="sm1m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+C.myo+'"/><stop offset="1" stop-color="'+C.myoD+'"/></linearGradient>'
+    +'<linearGradient id="sm1k" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+C.mlck+'"/><stop offset="1" stop-color="'+C.mlckD+'"/></linearGradient>'
+    +'<linearGradient id="sm1a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+C.act+'"/><stop offset="1" stop-color="'+C.actD+'"/></linearGradient>'
+    +smArrow("sa1ca", C.caD)+smArrow("sa1cam", C.camD)+smArrow("sa1k", C.mlckD)+'</defs>'
+    +'<text x="16" y="44" font-size="30" font-weight="700" fill="'+C.ink+'">NO TROPONIN</text>'
+    +'<text x="16" y="78" font-size="23" fill="'+C.label+'">the switch sits on the myosin, not on the actin</text>'
+    /* calcium pool */
+    +ions([[52,168,22],[104,138,22],[96,206,22],[148,176,22],[46,232,22]],"url(#sc1)",C.caD)
+    +'<path d="M182 180 L228 172" stroke="'+C.caD+'" stroke-width="8" marker-end="url(#sa1ca)"/>'
+    /* calmodulin, four lobes */
+    +'<g transform="translate(288,146)"><circle cx="0" cy="0" r="30" fill="'+C.cam+'" stroke="'+C.camD+'" stroke-width="3"/>'
+    +'<circle cx="42" cy="14" r="30" fill="'+C.cam+'" stroke="'+C.camD+'" stroke-width="3"/>'
+    +'<circle cx="6" cy="44" r="26" fill="'+C.cam+'" stroke="'+C.camD+'" stroke-width="3"/>'
+    +'<circle cx="48" cy="56" r="26" fill="'+C.cam+'" stroke="'+C.camD+'" stroke-width="3"/></g>'
+    +'<text x="270" y="252" font-size="22" font-weight="700" fill="'+C.camD+'">calmodulin</text>'
+    +'<path d="M356 178 L426 172" stroke="'+C.camD+'" stroke-width="8" marker-end="url(#sa1cam)"/>'
+    /* MLCK */
+    +'<rect x="440" y="124" width="176" height="100" rx="28" fill="url(#sm1k)"/>'
+    +'<text x="528" y="172" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">MLCK</text>'
+    +'<text x="528" y="202" font-size="20" fill="#fff4e2" text-anchor="middle">puts P on the myosin</text>'
+    +'<path d="M528 232 Q528 300 500 336" stroke="'+C.mlckD+'" stroke-width="7" fill="none" stroke-dasharray="13 10" marker-end="url(#sa1k)"/>'
+    /* actin */
+    +'<rect x="40" y="404" width="740" height="28" rx="14" fill="url(#sm1a)"/>'
+    +'<text x="42" y="392" font-size="22" font-weight="700" fill="'+C.actD+'">ACTIN</text>'
+    /* thick filament backbone */
+    +'<rect x="40" y="592" width="740" height="52" rx="26" fill="url(#sm1m)"/>'
+    +'<text x="60" y="626" font-size="21" font-weight="700" fill="#fff">MYOSIN · thick filament</text>'
+    /* two phosphorylated heads reaching UP and touching the actin */
+    +'<g stroke="'+C.myo+'" stroke-width="19" stroke-linecap="round" fill="none">'
+    +'<path d="M210 592 L258 500"/><path d="M470 592 L518 500"/></g>'
+    +'<circle cx="264" cy="466" r="34" fill="'+C.myo+'" stroke="'+C.myoD+'" stroke-width="3"/>'
+    +'<circle cx="524" cy="466" r="34" fill="'+C.myo+'" stroke="'+C.myoD+'" stroke-width="3"/>'
+    +'<g font-size="21" font-weight="700" text-anchor="middle">'
+    +'<circle cx="302" cy="436" r="18" fill="'+C.atp+'" stroke="'+C.mlckD+'" stroke-width="3"/><text x="302" y="443" fill="#5a3c00">P</text>'
+    +'<circle cx="562" cy="436" r="18" fill="'+C.atp+'" stroke="'+C.mlckD+'" stroke-width="3"/><text x="562" y="443" fill="#5a3c00">P</text></g>'
+    /* one bare head, hanging down, nowhere near the actin */
+    +'<path d="M700 644 L722 700" stroke="'+C.myo+'" stroke-width="19" stroke-linecap="round" fill="none" opacity=".5"/>'
+    +'<circle cx="728" cy="712" r="28" fill="'+C.myo+'" stroke="'+C.myoD+'" stroke-width="3" opacity=".5"/>'
+    +'<text x="686" y="692" font-size="20" font-weight="700" fill="'+C.label+'" text-anchor="end">no P →</text>'
+    +'<text x="686" y="716" font-size="20" font-weight="700" fill="'+C.label+'" text-anchor="end">cannot bind</text>'
+    +'<text x="40" y="708" font-size="23" font-weight="700" fill="'+C.myoD+'">only a phosphorylated</text>'
+    +'<text x="40" y="736" font-size="23" font-weight="700" fill="'+C.myoD+'">head binds and pulls</text>'
+    +'</svg>';
+
+  /* card 2 — the balance: MLCK adds it, MLCP takes it off */
+  D.sm2 = '<svg viewBox="0 0 820 760" role="img" aria-label="MLCK puts a phosphate on the myosin light chain and MLCP takes it off; tone is the balance between them">'
+    +'<defs><linearGradient id="sm2k" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+C.mlck+'"/><stop offset="1" stop-color="'+C.mlckD+'"/></linearGradient>'
+    +'<linearGradient id="sm2p" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+C.mlcp+'"/><stop offset="1" stop-color="'+C.mlcpD+'"/></linearGradient>'
+    +'<linearGradient id="sm2m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+C.myo+'"/><stop offset="1" stop-color="'+C.myoD+'"/></linearGradient>'
+    +smArrow("sa2k", C.mlckD)+smArrow("sa2p", C.mlcpD)+'</defs>'
+    +'<text x="16" y="44" font-size="30" font-weight="700" fill="'+C.ink+'">TONE = THE BALANCE</text>'
+    +'<text x="16" y="78" font-size="23" fill="'+C.label+'">the phosphatase never stops — it is always pulling the other way</text>'
+    /* the two enzymes */
+    +'<rect x="30" y="118" width="212" height="104" rx="28" fill="url(#sm2k)"/>'
+    +'<text x="136" y="166" font-size="34" font-weight="700" fill="#fff" text-anchor="middle">MLCK</text>'
+    +'<text x="136" y="198" font-size="21" fill="#fff4e2" text-anchor="middle">puts P on</text>'
+    +'<rect x="578" y="118" width="212" height="104" rx="28" fill="url(#sm2p)"/>'
+    +'<text x="684" y="166" font-size="34" font-weight="700" fill="#fff" text-anchor="middle">MLCP</text>'
+    +'<text x="684" y="198" font-size="21" fill="#e6f7f3" text-anchor="middle">takes P off</text>'
+    /* opposing arrows onto the head */
+    +'<path d="M180 236 Q300 300 348 344" stroke="'+C.mlckD+'" stroke-width="10" fill="none" marker-end="url(#sa2k)"/>'
+    +'<path d="M640 236 Q520 300 472 344" stroke="'+C.mlcpD+'" stroke-width="10" fill="none" marker-end="url(#sa2p)"/>'
+    /* myosin light chain carrying the contested phosphate */
+    +'<circle cx="410" cy="410" r="66" fill="url(#sm2m)"/>'
+    +'<text x="410" y="404" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">myosin</text>'
+    +'<text x="410" y="430" font-size="20" fill="#f0e4fa" text-anchor="middle">light chain</text>'
+    +'<circle cx="470" cy="360" r="26" fill="'+C.atp+'" stroke="'+C.mlckD+'" stroke-width="4"/>'
+    +'<text x="470" y="369" font-size="27" font-weight="700" fill="#5a3c00" text-anchor="middle">P</text>'
+    /* the balance itself */
+    +'<g transform="translate(410,600) rotate(-4)">'
+    +'<rect x="-290" y="-8" width="580" height="16" rx="8" fill="'+C.ink+'" opacity=".5"/>'
+    +'<circle cx="-224" cy="-42" r="34" fill="'+C.mlck+'" stroke="'+C.mlckD+'" stroke-width="4"/>'
+    +'<circle cx="224" cy="-42" r="34" fill="'+C.mlcp+'" stroke="'+C.mlcpD+'" stroke-width="4"/></g>'
+    +'<path d="M410 604 L368 686 L452 686 Z" fill="'+C.ink+'" opacity=".5"/>'
+    +'<text x="30" y="716" font-size="22" font-weight="700" fill="'+C.mlckD+'">more P → contract</text>'
+    +'<text x="790" y="716" font-size="22" font-weight="700" fill="'+C.mlcpD+'" text-anchor="end">less P → relax</text>'
+    +'</svg>';
+
+  /* card 3 — amlodipine plugs the L-type channel; the chain runs backwards */
+  D.sm3 = '<svg viewBox="0 0 820 760" role="img" aria-label="Amlodipine plugs the mouth of the L-type channel, cytosolic calcium falls, and the vessel dilates">'
+    +'<defs><radialGradient id="sc3" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="'+C.caL+'"/><stop offset="1" stop-color="'+C.caD+'"/></radialGradient>'
+    +'<linearGradient id="sm3c" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="'+C.cav+'"/><stop offset="1" stop-color="'+C.cavD+'"/></linearGradient>'
+    +'<linearGradient id="sm3m" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="'+C.memL+'"/><stop offset="1" stop-color="'+C.memD+'"/></linearGradient>'
+    +'<radialGradient id="sm3d" cx="34%" cy="28%" r="76%"><stop offset="0" stop-color="#FFA766"/><stop offset="1" stop-color="'+C.drugD+'"/></radialGradient>'
+    +smArrow("sa3ca", C.caD)+smArrow("sa3s", "#8a8073")+'</defs>'
+    +'<text x="16" y="44" font-size="29" font-weight="700" fill="'+C.ink+'">AMLODIPINE · a dihydropyridine</text>'
+    /* membrane, well clear of the title */
+    +'<rect x="556" y="96" width="80" height="664" fill="url(#sm3m)"/>'
+    +'<rect x="556" y="96" width="9" height="664" fill="#ffffff44"/>'
+    +'<text x="800" y="80" font-size="21" font-weight="700" fill="'+C.label+'" text-anchor="end">OUTSIDE</text>'
+    +'<text x="16" y="80" font-size="21" font-weight="700" fill="'+C.label+'">CYTOSOL</text>'
+    /* the channel: two lobes above and below a horizontal pore, sunk into the
+       membrane, with the drug plugging the OUTER mouth - half in, half out */
+    +'<path d="M512 236 L680 236 L680 348 L590 348 L568 322 L512 322 Z" fill="url(#sm3c)"/>'
+    +'<path d="M512 484 L680 484 L680 372 L590 372 L568 398 L512 398 Z" fill="url(#sm3c)"/>'
+    +'<rect x="512" y="236" width="168" height="12" rx="6" fill="#ffffff3a"/>'
+    +'<circle cx="676" cy="360" r="42" fill="url(#sm3d)" stroke="'+C.drugD+'" stroke-width="4"/>'
+    +'<text x="676" y="369" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">DHP</text>'
+    +'<text x="596" y="540" font-size="20" font-weight="700" fill="'+C.cavD+'" text-anchor="middle">L-type channel</text>'
+    /* calcium stuck outside, turned away */
+    +ions([[730,232,21],[774,296,21],[742,452,21],[782,516,21],[736,588,21]],"url(#sc3)",C.caD)
+    +'<path d="M770 320 Q736 342 748 300" stroke="'+C.caD+'" stroke-width="7" fill="none" marker-end="url(#sa3ca)"/>'
+    +'<path d="M768 404 Q736 382 750 424" stroke="'+C.caD+'" stroke-width="7" fill="none" marker-end="url(#sa3ca)"/>'
+    /* the falling pool inside */
+    +'<text x="16" y="132" font-size="25" font-weight="700" fill="'+C.caD+'">cytosolic Ca²⁺ falls</text>'
+    +ions([[52,196,20,".95"],[118,178,20,".62"],[84,252,20,".38"],[164,236,20,".2"]],"url(#sc3)",C.caD)
+    +'<text x="16" y="316" font-size="20" fill="'+C.label+'">SERCA · PMCA · NCX never stopped removing it —</text>'
+    +'<text x="16" y="344" font-size="20" fill="'+C.label+'">block entry and removal wins</text>'
+    /* the consequence chain */
+    +'<g font-size="24" font-weight="700">'
+    +'<text x="16" y="440" fill="'+C.mlckD+'">MLCK goes quiet</text>'
+    +'<text x="16" y="530" fill="'+C.mlcpD+'">MLCP wins by default</text>'
+    +'<text x="16" y="620" fill="'+C.myoD+'">the phosphates come off</text>'
+    +'<text x="16" y="710" fill="'+C.drugD+'">the vessel opens</text></g>'
+    +'<g stroke="#8a8073" stroke-width="5" opacity=".55" marker-end="url(#sa3s)">'
+    +'<path d="M30 458 L30 496"/><path d="M30 548 L30 586"/><path d="M30 638 L30 676"/></g>'
+    +'</svg>';
+
   window.CARD_DIAGRAMS = D;
 
   // ------------------------------------------------------------------ content
@@ -379,6 +514,23 @@
       pink=function(o){o.accent="pink";return o;};
 
   window.CARD_CONTENT = {
+  "smooth-muscle-tone": [
+    green({ deck:"Smooth Muscle & Vascular Tone", kicker:"The hook", foot:"Calmodulin · MLCK", diagram:"sm1",
+      q:"Vascular smooth muscle has no troponin. So what does calcium switch on?",
+      aTitle:"Calcium works through calmodulin", lead:"The switch sits on the myosin, not on the actin.",
+      aHtml:"Striated muscle regulates the <b>thin</b> filament: calcium binds troponin and tropomyosin moves off the actin. Smooth muscle has no troponin, so it regulates the <b>thick</b> filament instead. Calcium binds <b>calmodulin</b>; Ca²⁺–calmodulin activates <b>myosin light chain kinase (MLCK)</b>, which phosphorylates the myosin regulatory light chain. <b>Only a phosphorylated head can bind actin and pull</b> — the unphosphorylated ones hang there, useless.",
+      tag:"Ca²⁺ → calmodulin → MLCK → P on myosin" }),
+    orange({ deck:"Smooth Muscle & Vascular Tone", kicker:"The mechanism", foot:"MLCP · latch · cAMP & cGMP", diagram:"sm2",
+      q:"If MLCK phosphorylates the myosin, what actually sets how tight the vessel sits?",
+      aTitle:"Tone is a tug of war over one phosphate",
+      aHtml:"<b>Myosin light chain phosphatase (MLCP)</b> takes the phosphate straight back off, and it never stops — so tone is the <b>balance</b> between kinase and phosphatase, not the calcium level alone. A head dephosphorylated while still attached detaches very slowly: the <b>latch state</b>, which holds tone for hours on very little ATP. Both relaxation arms act on this balance — <b>cAMP inhibits MLCK</b>, while <b>NO → guanylyl cyclase → cGMP activates MLCP</b>. Same endpoint, opposite enzyme. And because the NO is made in the endothelium, <b>ACh and bradykinin need that cell intact</b>; nitroprusside brings its own.",
+      legend:[["#5AA84E","Ca²⁺"],["#E8A33C","MLCK"],["#2FA58C","MLCP"],["#9E63C6","myosin"],["#C1563F","actin"]] }),
+    pink({ deck:"Smooth Muscle & Vascular Tone", kicker:"The payoff", foot:"Amlodipine · ankle edema", diagram:"sm3",
+      q:"How does amlodipine lower blood pressure — and why does it swell the ankles?",
+      aTitle:"Close the door and removal wins", lead:"Sustained tone needs calcium from outside.",
+      aHtml:"<b>Amlodipine</b>, a <b>dihydropyridine</b>, plugs the <b>L-type (DHP) channel</b>. SERCA, PMCA and NCX never stopped removing calcium, so blocking entry lets removal win: the cytosolic pool falls, MLCK goes quiet, <b>MLCP wins by default</b>, the phosphates come off and the vessel opens. DHPs are <b>vessel-selective</b> where verapamil and diltiazem are cardiac — vascular smooth muscle sits chronically depolarized and DHPs prefer the inactivated channel. The catch is the same mechanism one compartment too far: they dilate <b>arterioles but not venules</b>, so capillary hydrostatic pressure rises and fluid filters out — <b>ankle edema, not fluid overload</b>, which is why a diuretic does not fix it.",
+      tag:"Block Ca²⁺ entry → MLCP wins → dilation (± ankle edema)" })
+  ],
 
   "calcium-release": [
     green({ deck:"Malignant Hyperthermia", kicker:"The hook", foot:"Excitation–contraction coupling · RyR1", diagram:"mh1",
