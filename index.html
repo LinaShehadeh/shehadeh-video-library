@@ -96,6 +96,22 @@ main{max-width:1080px;margin:0 auto;padding:22px 22px 60px}
 .btn.primary{color:#fff;background:var(--teal)}
 .btn.ghost{color:var(--ink);background:#fff;border-color:var(--line)}
 .perma{font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;align-items:center}
+
+/* --- Mechanism Map (the BUILD IT decks) --------------------------------- */
+.mapbox{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;background:#FCFBF7;flex-wrap:wrap}
+.mapbox + .mapbox{margin-top:10px}
+.mapmark{flex:0 0 62px;height:62px;border-radius:10px;background:var(--tealSoft);border:1px solid #CFE6DE;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--teal);text-align:center;line-height:1.15}
+.mapmark b{font-size:18px;font-weight:500;letter-spacing:0}
+.maptext{flex:1 1 240px;min-width:0}
+.maptext .t{font-size:14.5px;font-weight:500;margin:0 0 3px}
+.maptext p{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0 0 5px}
+.mapmeta{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.mapdl{text-decoration:none;display:inline-block;white-space:nowrap}
+.pill.map{background:var(--tealSoft);color:var(--teal);border-color:#CFE6DE}
+@media(max-width:560px){.mapbox{gap:10px}.mapmark{flex-basis:52px;height:52px}.mapdl{width:100%;text-align:center}}
 .section{border-top:1px solid var(--line);padding:16px 0 0;margin-bottom:16px}
 .section .h{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
 .section ul{margin:0;padding-left:18px}
@@ -200,6 +216,9 @@ window.SITE = {
   // Big .mp4 files live in a GitHub Release ("media" tag), NOT in the repo, so deploys stay tiny & fast.
   // To add a video: upload its .mp4 as an asset on the Release tagged "media", then set videoFile below to the bare filename.
   mediaBase: "https://github.com/LinaShehadeh/shehadeh-video-library/releases/download/media",
+  // Mechanism Map decks (.pptx) — small enough to live in the repo, in /maps.
+  // Student versions ONLY. Answer keys are never published here.
+  mapBase: "maps",
   languages: [
     { code:"EN", native:"English",          srclang:"en", dir:"ltr" },
     { code:"AR", native:"العربية",           srclang:"ar", dir:"rtl" },
@@ -230,6 +249,14 @@ window.SITE = {
         "Identify the three forces that maintain it."
       ],
       usmle: ["Step 1 · Cardiovascular — membrane potentials"],
+      // Mechanism Map — the BUILD IT deck(s) for this video. Files live in /maps.
+      maps: [
+        { file:"cell-membrane-potential-mechanism-map.pptx",
+          title:"Why the resting membrane potential is negative",
+          blurb:"The K⁺ leak channel, the voltage-gated Na⁺ and K⁺ channels, the Na⁺/K⁺-ATPase, the trapped intracellular anions and the ions themselves. Build the resting cell first, then show what a rising extracellular K⁺ does to it.",
+          canvases:3, parts:29, arrows:35, size:"0.3 MB", version:"v1", updated:"Sep 2026",
+          saveAs:"Mechanism Map 1 - Resting Membrane Potential - BUILD IT.pptx" }
+      ],
       // one entry per available language. vtt path is repo-relative (/captions).
       langs: {
         EN:{ mode:"audio",    vtt:"captions/cell-membrane-potential.en.vtt",
@@ -281,6 +308,14 @@ window.SITE = {
         "Explain how repeated cycles shorten the sarcomere."
       ],
       usmle: ["Step 1 \u00b7 Musculoskeletal \u2014 muscle contraction"],
+      // Mechanism Map — the BUILD IT deck(s) for this video. Files live in /maps.
+      maps: [
+        { file:"muscle-shortening-mechanism-map.pptx",
+          title:"The cross-bridge cycle",
+          blurb:"Actin, myosin heads in each of their four states, ATP, ADP and Pᵢ, troponin and tropomyosin — laid out unordered. Putting them in the right order, with the right molecule leaving at the right step, is the exercise.",
+          canvases:3, parts:20, arrows:36, size:"0.2 MB", version:"v1", updated:"Sep 2026",
+          saveAs:"Mechanism Map 2 - Cross-Bridge Cycle - BUILD IT.pptx" }
+      ],
       langs: {
         EN:{ mode:"audio",    vtt:"captions/muscle-shortening.en.vtt",
              title:"How a Muscle Actually Shortens",
@@ -331,6 +366,14 @@ window.SITE = {
         "Explain why RYR1 or CACNA1S (DHPR) mutations cause malignant hyperthermia and how dantrolene reverses it."
       ],
       usmle: ["Step 1 · Musculoskeletal — excitation–contraction coupling","Step 1 · Pharmacology — malignant hyperthermia & dantrolene"],
+      // Mechanism Map — the BUILD IT deck(s) for this video. Files live in /maps.
+      maps: [
+        { file:"calcium-release-mechanism-map.pptx",
+          title:"Skeletal excitation–contraction coupling, and where anaesthesia hijacks it",
+          blurb:"The T-tubule, the DHPR, RyR1 open and shut, SERCA, and an SR you can draw full or empty. Build the normal fibre first; the malignant hyperthermia canvas then changes exactly one thing.",
+          canvases:3, parts:17, arrows:36, size:"2.4 MB", version:"v1", updated:"Sep 2026",
+          saveAs:"Mechanism Map 3 - Skeletal EC Coupling - BUILD IT.pptx" }
+      ],
       langs: {
         EN:{ mode:"audio", vtt:"captions/calcium-release.en.vtt",
              title:"How Skeletal Muscle Releases Its Calcium",
@@ -385,6 +428,14 @@ window.SITE = {
         "Describe how Firdapse (amifampridine, 3,4-DAP) blocks presynaptic potassium channels to restore calcium influx and neuromuscular transmission."
       ],
       usmle: ["Step 1 · Neurology — neuromuscular junction disorders","Step 1 · Pharmacology — amifampridine (3,4-DAP) in LEMS"],
+      // Mechanism Map — the BUILD IT deck(s) for this video. Files live in /maps.
+      maps: [
+        { file:"lambert-eaton-mechanism-map.pptx",
+          title:"The neuromuscular junction, and the antibody that empties it",
+          blurb:"Terminal, vesicles, the P/Q-type Ca²⁺ channel, the ACh receptor, acetylcholinesterase and an autoantibody. Where you put the antibody decides whether you have drawn LEMS or myasthenia gravis.",
+          canvases:3, parts:11, arrows:36, size:"0.9 MB", version:"v1", updated:"Sep 2026",
+          saveAs:"Mechanism Map 4 - Neuromuscular Junction - BUILD IT.pptx" }
+      ],
       langs: {
         EN:{ mode:"audio", vtt:"captions/lambert-eaton.en.vtt",
              title:"Lambert-Eaton Myasthenic Syndrome",
@@ -443,6 +494,14 @@ window.SITE = {
         "Describe how PKA phosphorylation of phospholamban releases SERCA, and how loss of that lusitropic arm produces diastolic dysfunction in HFpEF."
       ],
       usmle: ["Step 1 · Cardiovascular — excitation-contraction coupling and calcium handling","Step 1 · Pharmacology — class IV antiarrhythmics (verapamil, diltiazem)","Step 2 CK · Cardiology — rate control in atrial fibrillation"],
+      // Mechanism Map — the BUILD IT deck(s) for this video. Files live in /maps.
+      maps: [
+        { file:"cardiac-ec-coupling-mechanism-map.pptx",
+          title:"Cardiac EC coupling, calcium-induced calcium release, and the drugs on it",
+          blurb:"Caᵥ1.2, RyR2, SERCA and phospholamban, NCX, the filaments, and the gap between the two channels that the whole mechanism turns on. Canvas 3 puts verapamil and diltiazem where they really act.",
+          canvases:3, parts:28, arrows:41, size:"2.2 MB", version:"v1", updated:"Sep 2026",
+          saveAs:"Mechanism Map 5 - Cardiac EC Coupling - BUILD IT.pptx" }
+      ],
       langs: {
         EN:{ mode:"audio", vtt:"captions/cardiac-ec-coupling.en.vtt",
              title:"Cardiac Excitation-Contraction Coupling",
@@ -502,6 +561,19 @@ window.SITE = {
         "Explain how amlodipine lowers cytosolic calcium by blocking L-type entry while SERCA, PMCA and NCX keep removing it, and why arteriolar dilation without venodilation produces ankle edema."
       ],
       usmle: ["Step 1 · Cardiovascular — vascular smooth muscle contraction and the regulation of tone","Step 1 · Pharmacology — dihydropyridine calcium channel blockers and nitrovasodilators","Step 2 CK · Cardiology — antihypertensive selection and drug-related edema"],
+      // Mechanism Map — the BUILD IT deck(s) for this video. Files live in /maps.
+      maps: [
+        { file:"smooth-muscle-tone-mechanism-map.pptx",
+          title:"Smooth muscle tone",
+          blurb:"No troponin in this cell — so calmodulin, MLCK, MLCP and a phosphate that goes on the myosin instead. Build tone as a tug of war between two enzymes running at once, then open the vessel three different ways.",
+          canvases:3, parts:27, arrows:42, size:"1.9 MB", version:"v2", updated:"Sep 2026",
+          saveAs:"Mechanism Map 6 - Smooth Muscle Tone - BUILD IT.pptx" },
+        { file:"three-muscle-types-mechanism-map.pptx",
+          title:"Capstone · all three muscle types, side by side",
+          blurb:"One canvas, three columns, and a parts bank that is deliberately not sorted by muscle type. Sorting it is the first half of the exercise; the comparison table is filled from your own drawing, not copied.",
+          canvases:3, parts:28, arrows:30, size:"3.1 MB", version:"v1", updated:"Sep 2026",
+          saveAs:"Mechanism Map - Three Muscle Types - BUILD IT (capstone).pptx" }
+      ],
       langs: {
         EN:{ mode:"audio", vtt:"captions/smooth-muscle-tone.en.vtt",
              title:"Smooth Muscle Contraction & Vascular Tone",
@@ -641,7 +713,7 @@ function renderGrid(){
         <span class="badge ${live?'dur':'prod'}">${live?v.duration:'in production'}</span>
       </div>
       <div class="card-body">
-        <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill teal">${v.system}</span><span class="pill">${v.discipline}</span></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill teal">${v.system}</span><span class="pill">${v.discipline}</span>${(v.maps&&v.maps.length)?`<span class="pill map">&#9635; Mechanism Map</span>`:``}</div>
         <h3>${en.title}</h3>
         <p>${en.desc}</p>
         ${coverage(v)}
@@ -649,6 +721,29 @@ function renderGrid(){
     </button>`;
   }).join("") : `<div style="border:1px dashed var(--line);border-radius:12px;padding:48px 20px;text-align:center;color:var(--muted)">No videos match that yet.</div>`;
   document.querySelectorAll(".card").forEach(c=>c.onclick=()=>openModal(c.dataset.id));
+}
+
+// ---- Mechanism Maps (the BUILD IT decks) --------------------------------
+// Student versions only. The answer keys are deliberately NOT on this site:
+// once a key is public the exercise stops working everywhere it is used.
+function mapsHTML(v){
+  const list = v.maps || [];
+  if(!list.length) return "";
+  const boxes = list.map(m=>`
+    <div class="mapbox">
+      <div class="mapmark"><b>${m.canvases}</b>canvases</div>
+      <div class="maptext">
+        <div class="t">${m.title}</div>
+        <p>${m.blurb}</p>
+        <div class="mapmeta">PowerPoint &middot; ${m.parts} objects + ${m.arrows} arrows and labels &middot; ${m.size} &middot; ${m.version} &middot; ${m.updated}</div>
+      </div>
+      <a class="btn primary mapdl" href="${S.mapBase}/${m.file}" download="${m.saveAs}">&darr; Mechanism Map &middot; BUILD IT</a>
+    </div>`).join("");
+  return `<div class="section" id="mapSection">
+      <div class="h">Mechanism Map <span style="font-weight:400;color:var(--faint);font-family:var(--mono);font-size:11px;text-transform:none;letter-spacing:0">&middot; build the pathway, don't re-read it</span></div>
+      ${boxes}
+      <p class="mapmeta" style="margin-top:10px;line-height:1.55">Every object is cut from the animation itself and all of them share one scale, so the parts stay in proportion when you assemble them. Opens in PowerPoint, Keynote or Google Slides. No answer key ships in the file &mdash; working out where each piece goes, with a partner, is the exercise.</p>
+    </div>`;
 }
 
 function renderQuiz(v){
@@ -845,6 +940,7 @@ function openModal(id){
           </div>
           <div class="section"><div class="h">Learning objectives</div>
             <ul>${v.objectives.map(o=>`<li>${o}</li>`).join("")}</ul></div>
+          ${mapsHTML(v)}
           <div class="section"><div class="h">Concept tags</div>
             <div class="tags">${v.tags.map(t=>`<span class="tag">#${t}</span>`).join("")}</div></div>
           <div class="section"><div class="h">USMLE content map</div>
@@ -865,6 +961,7 @@ function openModal(id){
   document.querySelectorAll(".lbtn").forEach(b=>{ if(!b.disabled) b.onclick=()=>{cur=b.dataset.c;draw();}; });
   renderQuiz(v);
   renderCards(v);
+  document.querySelectorAll(".mapdl").forEach(a=>a.addEventListener("click",()=>toast("Downloading the Mechanism Map…")));
   $("#sh").onclick=()=>toast(`Link copied — ${$("#perma").textContent}`);
   const dl=$("#dl"); if(dl && live) dl.onclick=()=>{ toast(`Downloading ${v.id}.mp4…`); window.location.href = `${S.mediaBase}/${v.videoFile}`; };
   // hide placeholder once real video can play

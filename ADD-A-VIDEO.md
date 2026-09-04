@@ -94,6 +94,35 @@ videos as reference.
 }
 ```
 
+## Step 3b — (optional) Add its Mechanism Map
+
+If the video has a BUILD IT deck, put it in `maps/` named
+`action-potential-mechanism-map.pptx`, then add a `maps:` array to the same
+block:
+
+```js
+  // Mechanism Map — the BUILD IT deck(s) for this video. Files live in /maps.
+  maps: [
+    { file:"action-potential-mechanism-map.pptx",
+      title:"The cardiac action potential",
+      blurb:"One or two sentences on what is in the bank and what the build has to show.",
+      canvases:3, parts:24, arrows:36, size:"1.2 MB", version:"v1", updated:"Sep 2026",
+      saveAs:"Mechanism Map 7 - Action Potential - BUILD IT.pptx" }
+  ],
+```
+
+- `file` — the filename in `maps/`, exactly.
+- `saveAs` — what the student's browser names the download. Make it readable in
+  a Downloads folder.
+- `canvases` / `parts` / `arrows` / `size` — shown as the small meta line. Round
+  the size; it is a courtesy, not a contract.
+- `version` — bump it whenever you replace the file.
+- A second `{ … }` in the array adds a second button (that is how the capstone
+  hangs off the smooth-muscle video).
+- Omit `maps:` entirely and the video simply has no map button.
+
+**Never put an ANSWERS deck in `maps/`.** The keys stay off the site.
+
 ## Step 4 — Publish
 
 In Git CMD:
