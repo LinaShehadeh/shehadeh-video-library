@@ -564,7 +564,7 @@
     pink({ deck:"Resting Membrane Potential", kicker:"The payoff", foot:"Hyperkalemia · the clinical twist", diagram:"cm3",
       q:"A dialysis patient's K⁺ hits 7.4. Why is the ECG changing?",
       aTitle:"When outside K⁺ climbs", lead:"Raise extracellular K⁺ and the cell depolarizes.",
-      aHtml:"More K⁺ outside <b>shrinks the K⁺ gradient</b>, so E_K — and the resting Vm — become <b>less negative</b>. The membrane <b>depolarizes</b>, voltage-gated Na⁺ channels inactivate, and conduction slows: <b>peaked T waves → widened QRS</b>. IV calcium stabilizes the membrane.",
+      aHtml:"More K⁺ outside <b>shrinks the K⁺ gradient</b>, so E_K — and the resting Vm — become <b>less negative</b>. The membrane <b>depolarizes</b> → voltage-gated Na⁺ channels inactivate → conduction slows → <b>widened QRS</b>. Separately, high extracellular K⁺ <b>raises I_Kr conductance</b> → faster repolarization → <b>peaked T waves with a short QT</b>. IV calcium stabilizes the membrane.",
       tag:"↑ extracellular K⁺ → depolarized, unstable membrane" })
   ],
 
